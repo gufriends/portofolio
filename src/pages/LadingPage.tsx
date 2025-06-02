@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import AboutSection from "../components/AboutSection";
 import HeroSection from "../components/HeroSection";
 import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";
-import ContactSection from "../components/ContactSection";
+// import ContactSection from "../components/ContactSection";
+import AboutSection from "../components/AboutSection";
 
 const LandingPage: React.FC = () => {
   // Container variants untuk staggered children - lebih smooth
@@ -40,7 +40,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <motion.main
-      className="w-auto mx-36 mt-7"
+      className="w-auto mx-36 mt-7 "
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -50,20 +50,20 @@ const LandingPage: React.FC = () => {
       </motion.div>
 
       <motion.div variants={sectionVariants}>
+        <ProjectsSection />
+      </motion.div>
+
+      <motion.div variants={sectionVariants}>
         <SkillsSection />
       </motion.div>
 
       <motion.div variants={sectionVariants}>
-        <ProjectsSection />
+        <AboutSection />
       </motion.div>
 
       {/* <motion.div variants={sectionVariants}>
-        <AboutSection />
-      </motion.div> */}
-
-      <motion.div variants={sectionVariants}>
         <ContactSection />
-      </motion.div>
+      </motion.div> */}
     </motion.main>
   );
 };

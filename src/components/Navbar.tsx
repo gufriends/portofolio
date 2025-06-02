@@ -10,23 +10,16 @@ const Navbar: React.FC = () => {
         >
           Muhammad Ghufran
         </a>
-        <ul className="flex space-x-6 justify-center text-xl  items-center font-semibold p-2.5 h-10">
+        <ul className="flex space-x-6 justify-center text-xl  items-center  font-semibold p-2.5 h-10">
           <li>
             <a
               href="#home"
-              className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
+              className="text-gray-200 inline-block transform transition-all font-int duration-200 hover:scale-110 hover:text-white"
             >
               Home
             </a>
           </li>
-          <li>
-            <a
-              href="#about"
-              className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
-            >
-              About
-            </a>
-          </li>
+
           <li>
             <a
               href="#projects"
@@ -37,10 +30,18 @@ const Navbar: React.FC = () => {
           </li>
           <li>
             <a
-              href="#contact"
+              href="#skills"
               className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
             >
-              Contact
+              Skills
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
+            >
+              About
             </a>
           </li>
         </ul>
