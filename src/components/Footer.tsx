@@ -4,6 +4,15 @@ import { motion } from "framer-motion";
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  // Function untuk smooth scroll ke atas
+  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="w-full bg-zinc-900/70 pt-16 pb-8 mt-12">
       <div className="max-w-5xl mx-auto px-8">
@@ -183,15 +192,21 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Back to top button */}
-        <div className="fixed bottom-8 right-8">
-          <a
+        {/* Back to top button - Responsive positioning */}
+        <div className="fixed bottom-24 md:bottom-8 right-4 md:right-8 z-50">
+          <motion.a
             href="#home"
-            className="w-12 h-12 rounded-full bg-zinc-800/80 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF] transition-all duration-300"
+            onClick={scrollToTop}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-zinc-800/90 backdrop-blur-sm flex items-center justify-center shadow-xl hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF] transition-all duration-300 hover:scale-110"
             aria-label="Back to top"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <svg
-              className="w-5 h-5 text-white"
+              className="w-5 h-5 md:w-6 md:h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -204,7 +219,7 @@ const Footer: React.FC = () => {
                 d="M5 10l7-7m0 0l7 7m-7-7v18"
               ></path>
             </svg>
-          </a>
+          </motion.a>
         </div>
       </div>
     </footer>

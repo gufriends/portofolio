@@ -6,18 +6,15 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="w-full flex flex-col  pt-12 items-start text-start relative"
-      // Hapus overflow-hidden untuk mencegah efek glow terpotong
+      className="w-full flex flex-col pt-6 md:pt-12 items-start text-start relative px-4 md:px-6 lg:px-8"
     >
       {/* Background wrapper yang lebih besar */}
       <div className="absolute inset-0 w-full h-full -z-10 overflow-visible">
-        {/* Glow effects dengan ukuran yang lebih besar dan blur yang lebih halus */}
-        <div className="absolute -left-[10%] top-[20%] w-[40vw] h-[40vw] bg-gradient-to-r from-[#3BF686]/10 to-[#3BF686]/30 rounded-full filter blur-[150px]" />
-        <div className="absolute -right-[5%] bottom-[10%] w-[35vw] h-[35vw] bg-gradient-to-r from-[#4CA9FF]/30 to-[#4CA9FF]/10 rounded-full filter blur-[150px]" />
-        <div className="absolute left-[30%] top-[60%] w-[25vw] h-[25vw] bg-gradient-to-r from-[#3BF686]/10 to-[#4CA9FF]/10 rounded-full filter blur-[120px]" />
-
-        {/* Additional subtle glow */}
-        <div className="absolute left-[50%] top-[10%] w-[20vw] h-[20vw] bg-gradient-to-r from-[#4CA9FF]/5 to-[#3BF686]/5 rounded-full filter blur-[100px]" />
+        {/* Responsive glow effects */}
+        <div className="absolute -left-[20%] md:-left-[10%] top-[20%] w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] bg-gradient-to-r from-[#3BF686]/10 to-[#3BF686]/30 rounded-full filter blur-[100px] md:blur-[150px]" />
+        <div className="absolute -right-[15%] md:-right-[5%] bottom-[10%] w-[50vw] md:w-[35vw] h-[50vw] md:h-[35vw] bg-gradient-to-r from-[#4CA9FF]/30 to-[#4CA9FF]/10 rounded-full filter blur-[100px] md:blur-[150px]" />
+        <div className="absolute left-[20%] md:left-[30%] top-[60%] w-[35vw] md:w-[25vw] h-[35vw] md:h-[25vw] bg-gradient-to-r from-[#3BF686]/10 to-[#4CA9FF]/10 rounded-full filter blur-[80px] md:blur-[120px]" />
+        <div className="absolute left-[40%] md:left-[50%] top-[10%] w-[30vw] md:w-[20vw] h-[30vw] md:h-[20vw] bg-gradient-to-r from-[#4CA9FF]/5 to-[#3BF686]/5 rounded-full filter blur-[80px] md:blur-[100px]" />
       </div>
 
       <motion.div
@@ -27,7 +24,7 @@ const HeroSection: React.FC = () => {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <h2
-          className="text-5xl font-sora font-bold mb-5 text-left"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sora font-bold mb-5 text-left leading-tight"
           style={{
             background: "linear-gradient(79deg, #3BF686, #4CA9FF)",
             WebkitBackgroundClip: "text",
@@ -42,36 +39,41 @@ const HeroSection: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="flex flex-row mt-8 w-full relative z-10"
+        className="flex flex-col lg:flex-row mt-6 md:mt-8 w-full relative z-10 gap-6 lg:gap-0"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
       >
-        <div className="rounded-lg me-9 flex-1 flex justify-center items-start">
+        {/* Avatar Section */}
+        <div className="flex justify-center lg:justify-start lg:flex-1 lg:me-9">
           <div className="relative">
             <div className="absolute inset-0 scale-125 bg-gradient-to-r from-[#3BF686]/40 to-[#4CA9FF]/40 rounded-full blur-xl opacity-50 -z-10"></div>
             <img
               src="/Avatar.svg"
               alt="Muhammad Ghufran"
-              className="w-auto h-auto relative z-10 object-cover rounded-full mx-auto shadow-lg"
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-auto lg:h-auto relative z-10 object-cover rounded-full shadow-lg"
             />
           </div>
         </div>
 
-        <div className="flex-1 me-20 w-auto">
-          <h4 className="font-semibold font-sora text-xl mb-3">Biography</h4>
-          <p className="text-gray-300 w-xl font-inter leading-relaxed">
+        {/* Biography Section */}
+        <div className="lg:flex-1 lg:me-20 text-center lg:text-left">
+          <h4 className="font-semibold font-sora text-lg md:text-xl mb-3">
+            Biography
+          </h4>
+          <p className="text-gray-300 font-inter leading-relaxed text-sm md:text-base">
             Gaining Buff +1 for learning, Buff +2 for documentation, and even
             more buffs for team management—excited to dive deeper into React, UX
             Research, and Agile while finishing my software engineering degree!
           </p>
         </div>
 
-        <div className="flex-1">
-          <h4 className="font-semibold font-sora text-xl mb-3 tracking-wider">
+        {/* Connect Section */}
+        <div className="lg:flex-1 text-center lg:text-left">
+          <h4 className="font-semibold font-sora text-lg md:text-xl mb-3 tracking-wider">
             Let's connect
           </h4>
-          <div className="flex flex-row">
+          <div className="flex flex-row justify-center lg:justify-start">
             <a
               href="https://www.instagram.com/ghufranb_"
               target="_blank"
@@ -82,7 +84,7 @@ const HeroSection: React.FC = () => {
               <img
                 src="/icons/instgram.svg"
                 alt="Instagram"
-                className="w-7 h-7"
+                className="w-6 h-6 md:w-7 md:h-7"
               />
             </a>
             <a
@@ -95,7 +97,7 @@ const HeroSection: React.FC = () => {
               <img
                 src="/icons/linkedin.svg"
                 alt="LinkedIn"
-                className="w-7 h-7"
+                className="w-6 h-6 md:w-7 md:h-7"
               />
             </a>
             <a
@@ -103,45 +105,51 @@ const HeroSection: React.FC = () => {
               className="mr-4 transition-transform hover:scale-110 duration-300"
               aria-label="Email"
             >
-              <img src="/icons/mail.svg" alt="Email" className="w-7 h-7" />
+              <img src="/icons/mail.svg" alt="Email" className="w-6 h-6 md:w-7 md:h-7" />
             </a>
           </div>
         </div>
       </motion.div>
 
       <motion.div
-        className="flex flex-row items-start justify-between w-full mt-20 relative z-10 gap-6"
+        className="flex flex-col lg:flex-row lg:items-start lg:justify-between w-full mt-12 md:mt-16 lg:mt-20 relative z-10 gap-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
       >
-        <div className="w-[28.625rem]">
-          <h4 className="font-semibold font-sora text-xl mb-3">What I do</h4>
-          <p className="text-[#EDCECE] font-inter leading-6 tracking-[0.014em]">
+        {/* What I do Section */}
+        <div className="lg:w-[28.625rem] text-center lg:text-left">
+          <h4 className="font-semibold font-sora text-lg md:text-xl mb-3">
+            What I do
+          </h4>
+          <p className="text-[#EDCECE] font-inter leading-6 tracking-[0.014em] text-sm md:text-base">
             Build and maintain websites, frontend dev also have a mentorship
             called MOFON. My motto is Beauty and function in equal measure as
             priority.
           </p>
         </div>
 
-        <div className="relative group">
-          <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
-          <ServiceCard
-            iconSrc="/icons/Globe.svg"
-            iconAlt="Web Development"
-            title="Web Development"
-            description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
-          />
-        </div>
+        {/* Service Cards - Stack on mobile, side by side on desktop */}
+        <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 justify-center lg:justify-end">
+          <div className="relative group flex justify-center">
+            <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
+            <ServiceCard
+              iconSrc="/icons/Globe.svg"
+              iconAlt="Web Development"
+              title="Web Development"
+              description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
+            />
+          </div>
 
-        <div className="relative group">
-          <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
-          <ServiceCard
-            iconSrc="/icons/Globe.svg"
-            iconAlt="Web Development"
-            title="Web Development"
-            description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
-          />
+          <div className="relative group flex justify-center">
+            <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
+            <ServiceCard
+              iconSrc="/icons/Globe.svg"
+              iconAlt="Web Development"
+              title="Web Development"
+              description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
+            />
+          </div>
         </div>
       </motion.div>
     </section>

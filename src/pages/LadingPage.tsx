@@ -40,7 +40,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <motion.main
-      className="w-auto mx-36 mt-7 "
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 mt-7 pb-20 md:pb-0"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
