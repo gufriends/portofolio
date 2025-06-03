@@ -3,10 +3,41 @@ import ServiceCard from "./ServiceCard";
 import { motion } from "framer-motion";
 
 const HeroSection: React.FC = () => {
+  // Container variants untuk staggered animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  // Item variants - simple fade up
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       id="home"
       className="w-full flex flex-col pt-6 md:pt-12 items-start text-start relative px-4 md:px-6 lg:px-8"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       {/* Background wrapper yang lebih besar */}
       <div className="absolute inset-0 w-full h-full -z-10 overflow-visible">
@@ -17,12 +48,8 @@ const HeroSection: React.FC = () => {
         <div className="absolute left-[40%] md:left-[50%] top-[10%] w-[30vw] md:w-[20vw] h-[30vw] md:h-[20vw] bg-gradient-to-r from-[#4CA9FF]/5 to-[#3BF686]/5 rounded-full filter blur-[80px] md:blur-[100px]" />
       </div>
 
-      <motion.div
-        className="relative z-10 w-full"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
+      {/* Hero Title */}
+      <motion.div className="relative z-10 w-full" variants={itemVariants}>
         <h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sora font-bold mb-5 text-left leading-tight"
           style={{
@@ -38,11 +65,10 @@ const HeroSection: React.FC = () => {
         </h2>
       </motion.div>
 
+      {/* Avatar, Biography, and Connect Section */}
       <motion.div
         className="flex flex-col lg:flex-row mt-6 md:mt-8 w-full relative z-10 gap-6 lg:gap-0"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+        variants={itemVariants}
       >
         {/* Avatar Section */}
         <div className="flex justify-center lg:justify-start lg:flex-1 lg:me-9">
@@ -105,17 +131,20 @@ const HeroSection: React.FC = () => {
               className="mr-4 transition-transform hover:scale-110 duration-300"
               aria-label="Email"
             >
-              <img src="/icons/mail.svg" alt="Email" className="w-6 h-6 md:w-7 md:h-7" />
+              <img
+                src="/icons/mail.svg"
+                alt="Email"
+                className="w-6 h-6 md:w-7 md:h-7"
+              />
             </a>
           </div>
         </div>
       </motion.div>
 
+      {/* What I do and Service Cards Section */}
       <motion.div
         className="flex flex-col lg:flex-row lg:items-start lg:justify-between w-full mt-12 md:mt-16 lg:mt-20 relative z-10 gap-6"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+        variants={itemVariants}
       >
         {/* What I do Section */}
         <div className="lg:w-[28.625rem] text-center lg:text-left">
@@ -131,7 +160,10 @@ const HeroSection: React.FC = () => {
 
         {/* Service Cards - Stack on mobile, side by side on desktop */}
         <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 justify-center lg:justify-end">
-          <div className="relative group flex justify-center">
+          <motion.div
+            className="relative group flex justify-center"
+            variants={itemVariants}
+          >
             <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
             <ServiceCard
               iconSrc="/icons/Globe.svg"
@@ -139,9 +171,12 @@ const HeroSection: React.FC = () => {
               title="Web Development"
               description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
             />
-          </div>
+          </motion.div>
 
-          <div className="relative group flex justify-center">
+          <motion.div
+            className="relative group flex justify-center"
+            variants={itemVariants}
+          >
             <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
             <ServiceCard
               iconSrc="/icons/Globe.svg"
@@ -149,10 +184,10 @@ const HeroSection: React.FC = () => {
               title="Web Development"
               description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
             />
-          </div>
+          </motion.div>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

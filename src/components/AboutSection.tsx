@@ -53,12 +53,12 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-20 w-full mx-auto bg-zinc-900/30 rounded-3xl  max-w-[95%] my-12 shadow-xl overflow-hidden transition-all duration-700"
+      className="py-20 w-full bg-zinc-900/30 rounded-3xl shadow-xl overflow-hidden transition-all duration-700"
       style={{
         minHeight: isExpanded ? "auto" : "auto",
       }}
     >
-      <div className="max-w-5xl mx-auto px-8">
+      <div className="px-6 md:px-8">
         {/* Header */}
         <h2 className="text-3xl font-bold text-center mb-12 font-sora">
           <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">

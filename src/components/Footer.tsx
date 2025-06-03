@@ -15,13 +15,13 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="w-full bg-zinc-900/70 pt-16 pb-8 mt-12">
-      <div className="max-w-5xl mx-auto px-8">
+      {/* Container dengan max-width dan padding yang sama */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Top section with logo, nav and socials */}
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           {/* Logo and tagline */}
           <div className="md:col-span-4">
             <div className="flex items-center mb-4">
-              {/* Logo - Replace with your actual logo */}
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] flex items-center justify-center mr-3 shadow-lg">
                 <span className="text-white font-bold font-sora">MG</span>
               </div>
