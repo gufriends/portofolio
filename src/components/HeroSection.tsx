@@ -114,7 +114,7 @@ const HeroSection: React.FC = () => {
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/muhammadghufran"
+              href="https://www.linkedin.com/in/ghufranbakrie/"
               target="_blank"
               rel="noopener noreferrer"
               className="mr-4 transition-transform hover:scale-110 duration-300"
