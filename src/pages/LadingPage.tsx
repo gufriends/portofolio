@@ -1,45 +1,9 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-
-// Lazy load components
-const HeroSection = lazy(() => import("../components/HeroSection"));
-const ProjectsSection = lazy(() => import("../components/ProjectsSection"));
-const SkillsSection = lazy(() => import("../components/SkillsSection"));
-const AboutSection = lazy(() => import("../components/AboutSection"));
-
-// Loading component dengan skeleton yang lebih detail
-const SectionSkeleton = ({ height = "h-96" }: { height?: string }) => (
-  <div className={`animate-pulse ${height}`}>
-    <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-full flex flex-col p-6">
-      <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded mb-4 w-3/4"></div>
-      <div className="space-y-3 flex-1">
-        <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
-        <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-5/6"></div>
-        <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-4/6"></div>
-      </div>
-    </div>
-  </div>
-);
-
-// Wrapper component untuk lazy loading dengan intersection observer
-const LazySection: React.FC<{
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
-  className?: string;
-}> = ({ children, fallback = <SectionSkeleton />, className = "" }) => {
-  const [ref, isIntersecting] = useIntersectionObserver();
-
-  return (
-    <div ref={ref} className={className}>
-      {isIntersecting ? (
-        <Suspense fallback={fallback}>{children}</Suspense>
-      ) : (
-        fallback
-      )}
-    </div>
-  );
-};
+import HeroSection from "../components/HeroSection";
+import ProjectsSection from "../components/ProjectsSection";
+import SkillsSection from "../components/SkillsSection";
+import AboutSection from "../components/AboutSection";
 
 const LandingPage: React.FC = () => {
   // Container variants untuk staggered children
@@ -80,31 +44,22 @@ const LandingPage: React.FC = () => {
       initial="hidden"
       animate="visible"
     >
+      {/* Container dengan max-width dan padding konsisten */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-16 md:space-y-24 lg:space-y-32">
-        {/* HeroSection - Load immediately */}
         <motion.div variants={sectionVariants}>
-          <Suspense fallback={<SectionSkeleton height="h-screen" />}>
-            <HeroSection />
-          </Suspense>
-        </motion.div>
-
-        {/* Other sections - Lazy load on scroll */}
-        <motion.div variants={sectionVariants}>
-          <LazySection fallback={<SectionSkeleton height="h-96" />}>
-            <ProjectsSection />
-          </LazySection>
+          <HeroSection />
         </motion.div>
 
         <motion.div variants={sectionVariants}>
-          <LazySection fallback={<SectionSkeleton height="h-80" />}>
-            <SkillsSection />
-          </LazySection>
+          <ProjectsSection />
         </motion.div>
 
         <motion.div variants={sectionVariants}>
-          <LazySection fallback={<SectionSkeleton height="h-64" />}>
-            <AboutSection />
-          </LazySection>
+          <SkillsSection />
+        </motion.div>
+
+        <motion.div variants={sectionVariants}>
+          <AboutSection />
         </motion.div>
       </div>
     </motion.main>
