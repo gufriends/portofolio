@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
 
 interface SkillItemProps {
   name: string;
@@ -29,7 +30,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
           The glow will be visible around the edges. */}
       <div className="bg-zinc-800 rounded-xl p-5 shadow-lg flex flex-col items-center relative transition-colors duration-300 ">
         <div className="w-16 h-16 mb-4 flex items-center justify-center bg-zinc-700 rounded-lg relative z-10">
-          <img src={icon} alt={name} className="w-10 h-10" />
+          <Icon icon={icon} width="40" height="40" />
         </div>
         <h3 className="text-white font-sora font-medium text-center relative z-10">
           {name}
@@ -40,22 +41,17 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
 };
 const SkillsSection: React.FC = () => {
   const techSkills: SkillItemProps[] = [
-    { name: "React", icon: "/icons/React_dark.svg", level: 85 },
-    {
-      name: "TypeScript",
-      icon: "/icons/logoTechStack/typescript.png",
-      level: 78,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: "/icons/logoTechStack/tailwind.png",
-      level: 90,
-    },
-    { name: "Node.js", icon: "/icons/logoTechStack/nodejs.png", level: 65 },
-    { name: "Next.js", icon: "/icons/logoTechStack/nextjs.png", level: 75 },
-    { name: "Figma", icon: "/icons/figma.svg", level: 70 },
-    { name: "Git", icon: "/icons/git.svg", level: 82 },
-    { name: "MongoDB", icon: "/icons/mongodb.svg", level: 60 },
+    { name: "React", icon: "logos:react", level: 85 },
+    { name: "TypeScript", icon: "logos:typescript-icon", level: 78 },
+    { name: "Tailwind CSS", icon: "logos:tailwindcss-icon", level: 90 },
+    { name: "Node.js", icon: "logos:nodejs-icon", level: 65 },
+    { name: "Next.js", icon: "logos:nextjs-icon", level: 75 },
+    { name: "Figma", icon: "logos:figma", level: 70 },
+    { name: "Git", icon: "logos:git-icon", level: 82 },
+    { name: "MongoDB", icon: "logos:mongodb-icon", level: 60 },
+    { name: "PostgreSQL", icon: "logos:postgresql", level: 70 },
+    { name: "Hono", icon: "logos:hono", level: 65 },
+    { name: "Prisma", icon: "simple-icons:prisma", level: 75 },
   ];
 
   return (

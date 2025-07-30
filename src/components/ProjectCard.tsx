@@ -1,11 +1,13 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 
 /**
  * Technology icon type definition
  */
 interface TechIcon {
-  src: string;
+  src?: string;
   alt: string;
+  icon?: string; // Added for iconify icons
 }
 
 /**
@@ -75,7 +77,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   className="w-6 h-6 bg-neutral-50/90 backdrop-blur-sm rounded-full flex items-center justify-center"
                   title={tech.alt}
                 >
-                  <img src={tech.src} alt={tech.alt} className="w-3.5 h-3.5" />
+                  {tech.icon ? (
+                    <Icon icon={tech.icon} width="16" height="16" />
+                  ) : (
+                    <img src={tech.src} alt={tech.alt} className="w-4 h-4" />
+                  )}
                 </div>
               ))}
               {technologies.length > 3 && (
@@ -179,7 +185,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 className="w-8 h-8 bg-neutral-50/90 backdrop-blur-sm rounded-full flex items-center justify-center"
                 title={tech.alt}
               >
-                <img src={tech.src} alt={tech.alt} className="w-5 h-5" />
+                {tech.icon ? (
+                  <Icon icon={tech.icon} width="24" height="24" />
+                ) : (
+                  <img src={tech.src} alt={tech.alt} className="w-5 h-5" />
+                )}
               </div>
             ))}
           </div>

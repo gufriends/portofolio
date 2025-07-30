@@ -48,48 +48,68 @@ const ProjectsSection: React.FC = () => {
     },
   };
 
-  // Featured projects data - 3 projects untuk preview
+  // Featured projects data - menggunakan iconify icons
   const featuredProjects = [
     {
       id: 1,
-      title: "SIPEMA Backend",
+      title: "SIPEMA - Public Complaint System",
       category: "Backend Development",
       description:
-        "Sistem Pengaduan Masyarakat untuk Universitas Syiah Kuala dengan arsitektur backend yang robust untuk mengelola alur pengaduan dari submission hingga resolution.",
-      imageSrc: "https://placehold.co/600x400/3BF686/000000",
-      projectUrl: "https://sipema-usk.com",
+        "Public complaint management system for USK using Hono framework with TypeScript. Features RESTful APIs, PostgreSQL with Prisma ORM, user authentication, complaint tracking, and notification system.",
+      imageSrc: "/coverProject/sipema.png",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/nodejs.svg", alt: "Node.js" },
-        { src: "/icons/mongodb.svg", alt: "MongoDB" },
-        { src: "/icons/express.svg", alt: "Express" },
+        { icon: "logos:typescript-icon", alt: "TypeScript" },
+        { icon: "logos:postgresql", alt: "PostgreSQL" },
+        { icon: "simple-icons:prisma", alt: "Prisma" },
+        { icon: "devicon:hono", alt: "Hono" },
       ],
     },
     {
       id: 2,
-      title: "E-Commerce Platform",
+      title: "SIPEDAS - Employee Information System",
       category: "Full Stack Development",
       description:
-        "Complete shopping solution dengan product management, cart functionality, user authentication, dan payment processing integration menggunakan teknologi modern.",
-      imageSrc: "https://placehold.co/600x400/4CA9FF/000000",
-      projectUrl: "https://ecommerce-demo.com",
+        "Employee management system for Aceh Social Service Department built with Express.js and Node.js. Features MongoDB database, role-based access control, approval workflow, and data validation.",
+      imageSrc: "/coverProject/sipedas.png",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/nodejs.svg", alt: "Node.js" },
-        { src: "/icons/stripe.svg", alt: "Stripe" },
+        { icon: "logos:nodejs-icon", alt: "Node.js" },
+        { icon: "logos:express", alt: "Express" },
+        { icon: "logos:mongodb-icon", alt: "MongoDB" },
       ],
     },
     {
       id: 3,
-      title: "TaskFlow Management",
-      category: "Frontend Development",
+      title: "Fintrack - Financial App for SMEs",
+      category: "Mobile Development",
       description:
-        "Modern task management application dengan real-time collaboration, drag-and-drop kanban boards, dan progress tracking untuk produktivitas tim.",
-      imageSrc: "https://placehold.co/600x400/8B5CF6/000000",
-      projectUrl: "https://taskflow-app.com",
+        "Financial management application for SMEs with machine learning integration for expense categorization, financial forecasting, data visualization, and comprehensive financial tracking.",
+      imageSrc: "/coverProject/fintrack.png",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/typescript.svg", alt: "TypeScript" },
-        { src: "/icons/tailwind.svg", alt: "Tailwind" },
+        { icon: "logos:android-icon", alt: "Android" },
+        { icon: "logos:python", alt: "Python" },
+        { icon: "logos:tensorflow", alt: "TensorFlow" },
+      ],
+    },
+  ];
+
+  // All projects data - termasuk project keempat
+  const allProjects = [
+    ...featuredProjects,
+    {
+      id: 4,
+      title: "Euran - Waste Management System",
+      category: "Web Development",
+      description:
+        "Integrated waste management system with Laravel framework. Features payment processing, user dashboard, collection scheduling, geolocation services, and notification system for waste collection operations.",
+      imageSrc: "https://placehold.co/600x400/F59E0B/000000",
+      projectUrl: "#",
+      technologies: [
+        { icon: "logos:laravel", alt: "Laravel" },
+        { icon: "logos:php", alt: "PHP" },
+        { icon: "logos:mysql-icon", alt: "MySQL" },
       ],
     },
   ];
@@ -118,8 +138,8 @@ const ProjectsSection: React.FC = () => {
             className="text-gray-400 text-lg md:text-xl font-inter max-w-2xl"
             variants={titleVariants}
           >
-            A selection of projects that showcase my skills and passion for
-            development
+            Real-world projects showcasing backend development, system
+            architecture, and problem-solving skills
           </motion.p>
         </div>
 
