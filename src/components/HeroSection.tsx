@@ -88,9 +88,11 @@ const HeroSection: React.FC = () => {
             Biography
           </h4>
           <p className="text-gray-300 font-inter leading-relaxed text-sm md:text-base">
-            Gaining Buff +1 for learning, Buff +2 for documentation, and even
-            more buffs for team management—excited to dive deeper into React, UX
-            Research, and Agile while finishing my software engineering degree!
+            A passionate Software Engineer and final-year Informatics student
+            who loves turning ideas into reality through code. When I'm not
+            building web applications with React and TypeScript, you'll find me
+            exploring new technologies, contributing to open-source projects, or
+            collaborating with teams to solve complex problems.
           </p>
         </div>
 
@@ -152,9 +154,13 @@ const HeroSection: React.FC = () => {
             What I do
           </h4>
           <p className="text-[#EDCECE] font-inter leading-6 tracking-[0.014em] text-sm md:text-base">
-            Build and maintain websites, frontend dev also have a mentorship
-            called MOFON. My motto is Beauty and function in equal measure as
-            priority.
+            I specialize in creating modern web applications using React,
+            TypeScript, and other cutting-edge technologies. With a passion for
+            clean code and user-centered design, I build responsive, interactive
+            experiences that solve real-world problems. Currently working as a
+            Software Engineer while finishing my Informatics degree, I bring
+            both academic knowledge and practical industry experience to every
+            project.
           </p>
         </div>
 
@@ -166,9 +172,9 @@ const HeroSection: React.FC = () => {
           >
             <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
             <ServiceCard
-              iconSrc="/icons/Globe.svg"
+              iconSrc="/icons/frontendIcon.png"
               iconAlt="Web Development"
-              title="Web Development"
+              title="Frontend Development"
               description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
             />
           </motion.div>
@@ -179,10 +185,10 @@ const HeroSection: React.FC = () => {
           >
             <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
             <ServiceCard
-              iconSrc="/icons/Globe.svg"
+              iconSrc="/icons/backend icon.png"
               iconAlt="Web Development"
-              title="Web Development"
-              description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
+              title="Backend Development"
+              description="Building robust server-side applications and APIs using modern backend technologies and best practices."
             />
           </motion.div>
         </div>
