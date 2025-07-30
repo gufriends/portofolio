@@ -41,10 +41,18 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
 const SkillsSection: React.FC = () => {
   const techSkills: SkillItemProps[] = [
     { name: "React", icon: "/icons/React_dark.svg", level: 85 },
-    { name: "TypeScript", icon: "/icons/typescript.svg", level: 78 },
-    { name: "Tailwind CSS", icon: "/icons/tailwind.svg", level: 90 },
-    { name: "Node.js", icon: "/icons/nodejs.svg", level: 65 },
-    { name: "Next.js", icon: "/icons/nextjs.svg", level: 75 },
+    {
+      name: "TypeScript",
+      icon: "/icons/logoTechStack/typescript.png",
+      level: 78,
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "/icons/logoTechStack/tailwind.png",
+      level: 90,
+    },
+    { name: "Node.js", icon: "/icons/logoTechStack/nodejs.png", level: 65 },
+    { name: "Next.js", icon: "/icons/logoTechStack/nextjs.png", level: 75 },
     { name: "Figma", icon: "/icons/figma.svg", level: 70 },
     { name: "Git", icon: "/icons/git.svg", level: 82 },
     { name: "MongoDB", icon: "/icons/mongodb.svg", level: 60 },
