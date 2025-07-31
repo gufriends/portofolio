@@ -72,7 +72,7 @@ const ProjectsSection: React.FC = () => {
       description:
         "Employee management system for Aceh Social Service Department built with Express.js and Node.js. Features MongoDB database, role-based access control, approval workflow, and data validation.",
       imageSrc: "/coverProject/sipedas.png",
-      projectUrl: "#",
+      projectUrl: "https://sipedas.vercel.app/",
       technologies: [
         { icon: "logos:nodejs-icon", alt: "Node.js" },
         { icon: "logos:express", alt: "Express" },
