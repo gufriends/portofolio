@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -44,7 +45,7 @@ const Footer: React.FC = () => {
                 className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF]"
                 aria-label="GitHub"
               >
-                <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4" />
+                <Icon icon="mdi:github" className="w-4 h-4 text-white" />
               </a>
               <a
                 href="https://www.linkedin.com/in/username"
@@ -53,11 +54,7 @@ const Footer: React.FC = () => {
                 className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF]"
                 aria-label="LinkedIn"
               >
-                <img
-                  src="/icons/linkedin.svg"
-                  alt="LinkedIn"
-                  className="w-4 h-4"
-                />
+                <Icon icon="mdi:linkedin" className="w-4 h-4 text-white" />
               </a>
               <a
                 href="https://www.instagram.com/username"
@@ -66,11 +63,7 @@ const Footer: React.FC = () => {
                 className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF]"
                 aria-label="Instagram"
               >
-                <img
-                  src="/icons/instagram.svg"
-                  alt="Instagram"
-                  className="w-4 h-4"
-                />
+                <Icon icon="mdi:instagram" className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>

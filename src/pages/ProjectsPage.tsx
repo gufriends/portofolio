@@ -8,15 +8,12 @@ const ProjectsPage: React.FC = () => {
 
   // Force scroll to top when component mounts
   useEffect(() => {
-    // Scroll to top immediately when page loads
     window.scrollTo(0, 0);
 
-    // Optional: Disable scroll restoration for this page
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
 
-    // Cleanup: Restore default behavior when leaving page
     return () => {
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "auto";
@@ -60,39 +57,38 @@ const ProjectsPage: React.FC = () => {
     },
   };
 
-  // Enhanced projects data
+  // Projects data - sesuai dengan ProjectsSection
   const projects = [
     {
       id: 1,
-      title: "SIPEMA - Sistem Pengaduan Masyarakat",
-      category: "Full Stack Development",
+      title: "SIPEMA - Public Complaint System",
+      category: "Backend Development",
       description:
-        "SIPEMA adalah platform pengaduan masyarakat untuk Universitas Syiah Kuala yang memungkinkan pelaporan keluhan secara digital. Sistem ini dibangun dengan arsitektur modern untuk mengelola alur pengaduan dari submission hingga resolution dengan dashboard admin yang komprehensif.",
-      imageSrc: "https://placehold.co/800x600/3BF686/000000",
-      projectUrl: "https://sipema-usk.com",
+        "Public complaint management system for USK using Hono framework with TypeScript. Features RESTful APIs, PostgreSQL with Prisma ORM, user authentication, complaint tracking, and notification system.",
+      imageSrc: "/coverProject/sipema.png",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/nodejs.svg", alt: "Node.js" },
-        { src: "/icons/mongodb.svg", alt: "MongoDB" },
-        { src: "/icons/tailwind.svg", alt: "Tailwind CSS" },
+        { icon: "logos:typescript-icon", alt: "TypeScript" },
+        { icon: "logos:postgresql", alt: "PostgreSQL" },
+        { icon: "simple-icons:prisma", alt: "Prisma" },
+        { icon: "devicon:hono", alt: "Hono" },
       ],
       imagePosition: "left" as const,
       year: "2024",
-      status: "Live",
+      status: "In Development",
     },
     {
       id: 2,
-      title: "E-Commerce Platform",
+      title: "SIPEDAS - Employee Information System",
       category: "Full Stack Development",
       description:
-        "Comprehensive e-commerce solution featuring product catalog, shopping cart, user authentication, payment gateway integration, and admin dashboard. Built with modern technologies focusing on performance, security, and scalability for growing businesses.",
-      imageSrc: "https://placehold.co/800x600/4CA9FF/000000",
-      projectUrl: "https://ecommerce-demo.com",
+        "Employee management system for Aceh Social Service Department built with Express.js and Node.js. Features MongoDB database, role-based access control, approval workflow, and data validation.",
+      imageSrc: "/coverProject/sipedas.png",
+      projectUrl: "https://sipedas.vercel.app/",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/typescript.svg", alt: "TypeScript" },
-        { src: "/icons/nodejs.svg", alt: "Node.js" },
-        { src: "/icons/stripe.svg", alt: "Stripe" },
+        { icon: "logos:nodejs-icon", alt: "Node.js" },
+        { icon: "logos:express", alt: "Express" },
+        { icon: "logos:mongodb-icon", alt: "MongoDB" },
       ],
       imagePosition: "right" as const,
       year: "2024",
@@ -100,71 +96,70 @@ const ProjectsPage: React.FC = () => {
     },
     {
       id: 3,
-      title: "TaskFlow - Project Management",
-      category: "Frontend Development",
+      title: "Fintrack - Financial App for SMEs",
+      category: "Mobile Development",
       description:
-        "Modern task management application with real-time collaboration, drag-and-drop kanban boards, team chat, file sharing, and progress tracking. Designed with focus on productivity and intuitive user experience for remote teams.",
-      imageSrc: "https://placehold.co/800x600/8B5CF6/000000",
-      projectUrl: "https://taskflow-app.com",
+        "Financial management application for SMEs with machine learning integration for expense categorization, financial forecasting, data visualization, and comprehensive financial tracking.",
+      imageSrc: "/coverProject/fintrack.png",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/typescript.svg", alt: "TypeScript" },
-        { src: "/icons/tailwind.svg", alt: "Tailwind CSS" },
-        { src: "/icons/firebase.svg", alt: "Firebase" },
+        { icon: "logos:android-icon", alt: "Android" },
+        { icon: "logos:python", alt: "Python" },
+        { icon: "logos:tensorflow", alt: "TensorFlow" },
       ],
       imagePosition: "left" as const,
-      year: "2023",
-      status: "Live",
+      year: "2024",
+      status: "In Development",
     },
     {
       id: 4,
-      title: "WeatherCast Dashboard",
-      category: "Frontend Development",
+      title: "Euran - Waste Management System",
+      category: "Web Development",
       description:
-        "Interactive weather dashboard with real-time data visualization, location-based forecasts, historical weather patterns, and customizable widgets. Features responsive design and smooth animations for optimal user experience across devices.",
-      imageSrc: "https://placehold.co/800x600/F59E0B/000000",
-      projectUrl: "https://weathercast-demo.com",
+        "Integrated waste management system with Laravel framework. Features payment processing, user dashboard, collection scheduling, geolocation services, and notification system for waste collection operations.",
+      imageSrc: "https://placehold.co/600x400/F59E0B/000000",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/javascript.svg", alt: "JavaScript" },
-        { src: "/icons/chartjs.svg", alt: "Chart.js" },
-        { src: "/icons/api.svg", alt: "Weather API" },
+        { icon: "logos:laravel", alt: "Laravel" },
+        { icon: "logos:php", alt: "PHP" },
+        { icon: "logos:mysql-icon", alt: "MySQL" },
       ],
       imagePosition: "right" as const,
       year: "2023",
-      status: "Live",
+      status: "In Development",
     },
+    // Additional projects untuk melengkapi portfolio
     {
       id: 5,
-      title: "Portfolio Website V2",
+      title: "Portfolio Website",
       category: "Frontend Development",
       description:
         "Modern, responsive portfolio website showcasing development work with smooth animations, dark theme, and optimized performance. Built with React and Framer Motion for engaging user interactions and professional presentation.",
       imageSrc: "https://placehold.co/800x600/10B981/000000",
-      projectUrl: "https://portfolio-v2.com",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/typescript.svg", alt: "TypeScript" },
-        { src: "/icons/tailwind.svg", alt: "Tailwind CSS" },
-        { src: "/icons/framer.svg", alt: "Framer Motion" },
+        { icon: "logos:react", alt: "React" },
+        { icon: "logos:typescript-icon", alt: "TypeScript" },
+        { icon: "logos:tailwindcss-icon", alt: "Tailwind CSS" },
+        { icon: "logos:framer", alt: "Framer Motion" },
       ],
       imagePosition: "left" as const,
-      year: "2023",
+      year: "2024",
       status: "Live",
     },
     {
       id: 6,
-      title: "ChatRoom - Real-time Messaging",
-      category: "Full Stack Development",
+      title: "API Gateway Service",
+      category: "Backend Development",
       description:
-        "Real-time chat application with private messaging, group conversations, file sharing, emoji reactions, and online status indicators. Built with Socket.io for instant communication and smooth user experience.",
+        "Microservices API gateway built with Node.js and Express. Features request routing, authentication middleware, rate limiting, logging, and service discovery for distributed system architecture.",
       imageSrc: "https://placehold.co/800x600/EF4444/000000",
-      projectUrl: "https://chatroom-app.com",
+      projectUrl: "#",
       technologies: [
-        { src: "/icons/react.svg", alt: "React" },
-        { src: "/icons/nodejs.svg", alt: "Node.js" },
-        { src: "/icons/socketio.svg", alt: "Socket.IO" },
-        { src: "/icons/mongodb.svg", alt: "MongoDB" },
+        { icon: "logos:nodejs-icon", alt: "Node.js" },
+        { icon: "logos:express", alt: "Express" },
+        { icon: "logos:redis", alt: "Redis" },
+        { icon: "logos:docker-icon", alt: "Docker" },
       ],
       imagePosition: "right" as const,
       year: "2023",
@@ -177,6 +172,8 @@ const ProjectsPage: React.FC = () => {
     "Frontend Development",
     "Full Stack Development",
     "Backend Development",
+    "Mobile Development",
+    "Web Development",
   ];
 
   const filteredProjects =
@@ -227,7 +224,7 @@ const ProjectsPage: React.FC = () => {
             </Link>
           </div>
 
-          {/* Title Section - Inspired by the design */}
+          {/* Title Section */}
           <div className="text-left mb-12">
             <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-sora mb-6 leading-tight"
@@ -243,19 +240,20 @@ const ProjectsPage: React.FC = () => {
               className="text-gray-400 text-lg md:text-xl font-inter max-w-2xl leading-relaxed"
               variants={headerVariants}
             >
-              Explore my complete portfolio showcasing various technologies,
-              methodologies, and creative solutions across different domains.
+              Real-world projects showcasing backend development, system
+              architecture, mobile development, and full-stack solutions across
+              different domains.
             </motion.p>
           </div>
 
-          {/* Divider line like in design */}
+          {/* Divider line */}
           <motion.div
             className="w-full h-px bg-gradient-to-r from-zinc-600 via-zinc-500 to-zinc-600 mb-12"
             variants={headerVariants}
           />
         </motion.div>
 
-        {/* Filter Buttons - Enhanced styling */}
+        {/* Filter Buttons */}
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-16"
           variants={itemVariants}
@@ -297,7 +295,7 @@ const ProjectsPage: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Projects Grid - Enhanced with staggered animation */}
+        {/* Projects Grid */}
         <div className="space-y-20 lg:space-y-24">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -305,14 +303,13 @@ const ProjectsPage: React.FC = () => {
               variants={itemVariants}
               className="group"
             >
-              {/* Project Card with enhanced styling */}
               <div className="relative">
                 {/* Project number indicator */}
                 <div className="absolute -left-4 top-0 text-8xl font-bold text-zinc-800/30 font-sora select-none pointer-events-none">
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
-                {/* Enhanced ProjectCard */}
+                {/* ProjectCard */}
                 <motion.div
                   className="relative z-10"
                   whileHover={{ y: -8 }}
@@ -329,7 +326,7 @@ const ProjectsPage: React.FC = () => {
                   />
                 </motion.div>
 
-                {/* Project metadata - Fixed width constraint */}
+                {/* Project metadata */}
                 <motion.div
                   className="w-full max-w-5xl mx-auto mt-6 px-6"
                   initial={{ opacity: 0 }}
@@ -346,7 +343,13 @@ const ProjectsPage: React.FC = () => {
                         </span>
                       </span>
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                        <div
+                          className={`w-2 h-2 rounded-full ${
+                            project.status === "Live"
+                              ? "bg-green-400"
+                              : "bg-yellow-400"
+                          }`}
+                        ></div>
                         <span className="text-sm text-gray-400 font-inter">
                           {project.status}
                         </span>
@@ -361,7 +364,7 @@ const ProjectsPage: React.FC = () => {
                       className="inline-flex items-center text-sm text-[#3BF686] hover:text-[#4CA9FF] transition-colors font-semibold self-start sm:self-auto"
                       whileHover={{ x: 5 }}
                     >
-                      View Live
+                      {project.projectUrl === "#" ? "Coming Soon" : "View Live"}
                       <svg
                         className="w-4 h-4 ml-1"
                         fill="none"
@@ -388,7 +391,6 @@ const ProjectsPage: React.FC = () => {
           className="text-center mt-24 p-12 bg-gradient-to-r from-zinc-900/80 to-zinc-800/80 backdrop-blur-sm rounded-3xl border border-zinc-700/30 relative overflow-hidden"
           variants={itemVariants}
         >
-          {/* Background decoration */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#3BF686]/5 to-[#4CA9FF]/5 rounded-3xl"></div>
 
           <div className="relative z-10">
