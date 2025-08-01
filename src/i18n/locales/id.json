@@ -1,0 +1,87 @@
+{
+  "navbar": {
+    "home": "Beranda",
+    "projects": "Proyek",
+    "skills": "Keahlian",
+    "about": "Tentang",
+    "contact": "Kontak"
+  },
+  "navigation": {
+    "links": [
+      { "key": "home", "label": "Beranda", "href": "#home" },
+      { "key": "projects", "label": "Proyek", "href": "#projects" },
+      { "key": "skills", "label": "Keahlian", "href": "#skills" },
+      { "key": "about", "label": "Tentang", "href": "#about" },
+      { "key": "contact", "label": "Kontak", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "heading": "Hai, saya Muhammad Ghufran, seorang Software Engineer yang bersemangat dalam menciptakan solusi digital yang inovatif.",
+    "greeting": "Halo, saya",
+    "name": "Muhammad Ghufran",
+    "title": "Frontend Developer",
+    "description": "seorang Software Engineer yang bersemangat dalam menciptakan solusi digital yang inovatif",
+    "downloadResume": "Unduh Resume",
+    "viewProjects": "Lihat Proyek",
+    "contactMe": "Hubungi Saya",
+    "biography": "Biografi",
+    "contentBiography": "Seorang Software Engineer yang penuh semangat dan mahasiswa Informatika tingkat akhir yang senang mengubah ide menjadi kenyataan melalui kode. Ketika saya tidak sedang membangun aplikasi web dengan React dan TypeScript, Anda akan menemukan saya mengeksplorasi teknologi baru, berkontribusi pada proyek open-source, dan berkolaborasi dengan tim untuk menyelesaikan masalah kompleks.",
+    "Let's connect": "Mari Terhubung",
+    "What I do": "Apa yang Saya Lakukan",
+    "descWhatIDo": "Saya mengkhususkan diri dalam membuat aplikasi web modern menggunakan React, TypeScript, dan teknologi canggih lainnya. Dengan passion untuk kode yang bersih dan desain yang berpusat pada pengguna, saya membangun pengalaman yang responsif dan interaktif yang menyelesaikan masalah dunia nyata. Saat ini bekerja sebagai Software Engineer sambil menyelesaikan gelar Informatika saya, saya menggabungkan pengetahuan akademis dan pengalaman industri praktis dalam setiap proyek.",
+    "jobDes1": "Membuat situs web dan aplikasi web yang responsif dan interaktif dengan kerangka kerja frontend modern dan praktik terbaik.",
+    "jobDes2": "Membangun aplikasi server-side dan API yang kuat menggunakan teknologi backend modern dan praktik terbaik."
+  },
+  "about": {
+    "title": "Biografi",
+    "description": "Seorang Software Engineer yang bersemangat dan mahasiswa Informatika tingkat akhir yang suka mewujudkan ide menjadi kenyataan melalui kode. Ketika saya tidak sedang membangun aplikasi web dengan React dan TypeScript, Anda akan menemukan saya mengeksplorasi teknologi baru, berkontribusi pada proyek open-source, dan berkolaborasi dengan tim untuk memecahkan masalah yang kompleks.",
+    "experience": "Pengalaman",
+    "projects": "Proyek Selesai",
+    "clients": "Klien Puas"
+  },
+  "skills": {
+    "title": "Yang Saya Lakukan",
+    "description": "Saya mengkhususkan diri dalam membuat aplikasi web modern menggunakan React, TypeScript, dan teknologi canggih lainnya. Dengan passion untuk kode yang bersih dan desain yang berpusat pada pengguna, saya membangun pengalaman yang responsif dan interaktif yang menyelesaikan masalah dunia nyata. Saat ini bekerja sebagai Software Engineer sambil menyelesaikan gelar Informatika saya, saya menggabungkan pengetahuan akademis dan pengalaman industri praktis dalam setiap proyek.",
+    "frontend": "Pengembangan Frontend",
+    "backend": "Pengembangan Backend",
+    "frontendDesc": "Membangun antarmuka pengguna yang responsif dan interaktif menggunakan React, TypeScript, dan framework CSS modern",
+    "backendDesc": "Membangun aplikasi server-side dan API yang kuat menggunakan teknologi backend modern dan praktik terbaik"
+  },
+  "projects": {
+    "title": "Proyek Saya",
+    "description": "Beberapa proyek yang telah saya kerjakan",
+    "viewDetails": "Lihat Detail",
+    "liveDemo": "Demo Langsung",
+    "sourceCode": "Kode Sumber",
+    "allProjects": "Lihat Semua Proyek"
+  },
+  "contact": {
+    "title": "Mari Terhubung",
+    "description": "Mari bekerja sama dalam proyek Anda selanjutnya",
+    "email": "Email",
+    "phone": "Telepon",
+    "location": "Lokasi",
+    "sendMessage": "Kirim Pesan",
+    "name": "Nama Anda",
+    "message": "Pesan Anda",
+    "namePlaceholder": "Masukkan nama Anda",
+    "emailPlaceholder": "Masukkan email Anda",
+    "messagePlaceholder": "Masukkan pesan Anda"
+  },
+  "footer": {
+    "copyright": "© {{year}} Muhammad Ghufran. Semua hak dilindungi.",
+    "builtWith": "Dibuat dengan React & Tailwind CSS"
+  },
+  "common": {
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "tryAgain": "Coba Lagi",
+    "close": "Tutup",
+    "open": "Buka",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "next": "Selanjutnya",
+    "previous": "Sebelumnya",
+    "language": "Bahasa"
+  }
+}

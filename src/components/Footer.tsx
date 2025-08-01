@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   // Function untuk smooth scroll ke atas
@@ -159,7 +161,7 @@ const Footer: React.FC = () => {
         {/* Bottom copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between">
           <p className="text-neutral-500 text-sm font-inter mb-4 md:mb-0">
-            © {currentYear} Muhammad Ghufran. All rights reserved.
+            {t("footer.copyright", { year: currentYear })}
           </p>
 
           <motion.div

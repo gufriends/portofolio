@@ -1,8 +1,10 @@
 import React from "react";
 import ServiceCard from "./ServiceCard";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const HeroSection: React.FC = () => {
+  const { t } = useTranslation();
   // Container variants untuk staggered animation
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,8 +62,7 @@ const HeroSection: React.FC = () => {
             color: "transparent",
           }}
         >
-          Hi, I'm Muhammad Ghufran, a passionate Software Engineer crafting
-          innovative digital solutions.
+          {t("hero.heading")}
         </h2>
       </motion.div>
 
@@ -85,21 +86,17 @@ const HeroSection: React.FC = () => {
         {/* Biography Section */}
         <div className="lg:flex-1 text-center lg:text-left">
           <h4 className="font-semibold font-sora text-lg md:text-xl mb-4">
-            Biography
+            {t("hero.biography")}
           </h4>
           <p className="text-gray-300 font-inter leading-relaxed text-sm md:text-base mb-6 lg:mb-0">
-            A passionate Software Engineer and final-year Informatics student
-            who loves turning ideas into reality through code. When I'm not
-            building web applications with React and TypeScript, you'll find me
-            exploring new technologies, contributing to open-source projects,
-            and collaborating with teams to solve complex problems.
+            {t("hero.contentBiography")}
           </p>
         </div>
 
         {/* Connect Section - Paling Kanan */}
         <div className="lg:w-64 lg:flex-shrink-0 text-center lg:text-right">
           <h4 className="font-semibold font-sora text-lg md:text-xl mb-4 tracking-wider">
-            Let's connect
+            {t("hero.Let's connect")}
           </h4>
           <div className="flex flex-col items-center lg:items-end gap-6">
             {/* Social Media Icons */}
@@ -166,7 +163,7 @@ const HeroSection: React.FC = () => {
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              Download CV
+              {t("hero.downloadResume")}
             </motion.a>
           </div>
         </div>
@@ -180,16 +177,10 @@ const HeroSection: React.FC = () => {
         {/* What I do Section */}
         <div className="lg:w-[28.625rem] text-center lg:text-left">
           <h4 className="font-semibold font-sora text-lg md:text-xl mb-4">
-            What I do
+            {t("hero.What I do")}
           </h4>
           <p className="text-[#EDCECE] font-inter leading-relaxed tracking-[0.014em] text-sm md:text-base">
-            I specialize in creating modern web applications using React,
-            TypeScript, and other cutting-edge technologies. With a passion for
-            clean code and user-centered design, I build responsive, interactive
-            experiences that solve real-world problems. Currently working as a
-            Software Engineer while finishing my Informatics degree, I bring
-            both academic knowledge and practical industry experience to every
-            project.
+            {t("hero.descWhatIDo")}
           </p>
         </div>
 
@@ -204,7 +195,7 @@ const HeroSection: React.FC = () => {
               iconSrc="/icons/frontendIcon.png"
               iconAlt="Web Development"
               title="Frontend Development"
-              description="Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices."
+              description={t("hero.jobDes1")}
             />
           </motion.div>
 
@@ -217,7 +208,7 @@ const HeroSection: React.FC = () => {
               iconSrc="/icons/backend icon.png"
               iconAlt="Web Development"
               title="Backend Development"
-              description="Building robust server-side applications and APIs using modern backend technologies and best practices."
+              description={t("hero.jobDes2")}
             />
           </motion.div>
         </div>

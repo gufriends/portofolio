@@ -96,23 +96,23 @@ const ProjectsSection: React.FC = () => {
   ];
 
   // All projects data - termasuk project keempat
-  const allProjects = [
-    ...featuredProjects,
-    {
-      id: 4,
-      title: "Euran - Waste Management System",
-      category: "Web Development",
-      description:
-        "Integrated waste management system with Laravel framework. Features payment processing, user dashboard, collection scheduling, geolocation services, and notification system for waste collection operations.",
-      imageSrc: "https://placehold.co/600x400/F59E0B/000000",
-      projectUrl: "#",
-      technologies: [
-        { icon: "logos:laravel", alt: "Laravel" },
-        { icon: "logos:php", alt: "PHP" },
-        { icon: "logos:mysql-icon", alt: "MySQL" },
-      ],
-    },
-  ];
+  // const allProjects = [
+  //   ...featuredProjects,
+  //   {
+  //     id: 4,
+  //     title: "Euran - Waste Management System",
+  //     category: "Web Development",
+  //     description:
+  //       "Integrated waste management system with Laravel framework. Features payment processing, user dashboard, collection scheduling, geolocation services, and notification system for waste collection operations.",
+  //     imageSrc: "https://placehold.co/600x400/F59E0B/000000",
+  //     projectUrl: "#",
+  //     technologies: [
+  //       { icon: "logos:laravel", alt: "Laravel" },
+  //       { icon: "logos:php", alt: "PHP" },
+  //       { icon: "logos:mysql-icon", alt: "MySQL" },
+  //     ],
+  //   },
+  // ];
 
   return (
     <motion.section

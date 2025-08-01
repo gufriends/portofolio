@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const { t } = useTranslation();
 
   const handleNavClick = (section: string) => {
     setActiveSection(section);
@@ -25,7 +28,7 @@ const Navbar: React.FC = () => {
                 className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
                 onClick={() => handleNavClick("home")}
               >
-                Home
+                {t("navbar.home")}
               </a>
             </li>
             <li>
@@ -34,7 +37,7 @@ const Navbar: React.FC = () => {
                 className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
                 onClick={() => handleNavClick("projects")}
               >
-                Projects
+                {t("navbar.projects")}
               </a>
             </li>
             <li>
@@ -43,7 +46,7 @@ const Navbar: React.FC = () => {
                 className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
                 onClick={() => handleNavClick("skills")}
               >
-                Skills
+                {t("navbar.skills")}
               </a>
             </li>
             <li>
@@ -52,8 +55,11 @@ const Navbar: React.FC = () => {
                 className="text-gray-200 inline-block transform transition-all duration-200 hover:scale-110 hover:text-white"
                 onClick={() => handleNavClick("about")}
               >
-                About
+                {t("navbar.about")}
               </a>
+            </li>
+            <li>
+              <LanguageSwitcher />
             </li>
           </ul>
         </div>
@@ -86,7 +92,7 @@ const Navbar: React.FC = () => {
               >
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
-              <span className="text-xs font-medium">Home</span>
+              <span className="text-xs font-medium">{t("navbar.home")}</span>
             </a>
           </li>
 
@@ -110,7 +116,9 @@ const Navbar: React.FC = () => {
                   d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15.586 13H14a1 1 0 01-1-1z"
                 />
               </svg>
-              <span className="text-xs font-medium">Projects</span>
+              <span className="text-xs font-medium">
+                {t("navbar.projects")}
+              </span>
             </a>
           </li>
 
@@ -131,7 +139,7 @@ const Navbar: React.FC = () => {
               >
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-xs font-medium">Skills</span>
+              <span className="text-xs font-medium">{t("navbar.skills")}</span>
             </a>
           </li>
 
@@ -155,8 +163,14 @@ const Navbar: React.FC = () => {
                   d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                 />
               </svg>
-              <span className="text-xs font-medium">About</span>
+              <span className="text-xs font-medium">{t("navbar.about")}</span>
             </a>
+          </li>
+
+          <li className="flex-1">
+            <div className="flex justify-center py-2">
+              <LanguageSwitcher />
+            </div>
           </li>
         </ul>
       </nav>
