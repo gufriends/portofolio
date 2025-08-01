@@ -2,10 +2,22 @@ import React from "react";
 import ServiceCard from "./ServiceCard";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { track } from "@vercel/analytics";
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
   // Container variants untuk staggered animation
+
+  // Track social media clicks
+  const trackSocialClick = (platform: string) => {
+    track("social_click", { platform });
+  };
+
+  // Track CV download
+  const trackCVDownload = () => {
+    track("cv_download", { source: "hero_section" });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -107,6 +119,7 @@ const HeroSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110 duration-300"
                 aria-label="Instagram"
+                onClick={() => trackSocialClick("instagram")}
               >
                 <img
                   src="/icons/instgram.svg"
@@ -120,6 +133,7 @@ const HeroSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110 duration-300"
                 aria-label="LinkedIn"
+                onClick={() => trackSocialClick("linkedin")}
               >
                 <img
                   src="/icons/linkedin.svg"
@@ -131,6 +145,7 @@ const HeroSection: React.FC = () => {
                 href="mailto:ghufranbakrie@gmail.com"
                 className="transition-transform hover:scale-110 duration-300"
                 aria-label="Email"
+                onClick={() => trackSocialClick("email")}
               >
                 <img
                   src="/icons/mail.svg"
@@ -148,6 +163,7 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Download CV"
+              onClick={trackCVDownload}
             >
               <svg
                 className="w-4 h-4 mr-2"
