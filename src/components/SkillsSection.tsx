@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 
 interface SkillItemProps {
   name: string;
@@ -40,6 +41,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
   );
 };
 const SkillsSection: React.FC = () => {
+  const { t } = useTranslation();
   const techSkills: SkillItemProps[] = [
     { name: "React", icon: "logos:react", level: 85 },
     { name: "TypeScript", icon: "logos:typescript-icon", level: 78 },
@@ -76,13 +78,12 @@ const SkillsSection: React.FC = () => {
       >
         <h2 className="text-3xl font-bold text-center mb-4 font-sora">
           <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
-            Tech Stack
+            {t("SkillSection.title")}
           </span>
         </h2>
 
         <p className="text-neutral-300 text-center max-w-2xl mx-auto mb-12 font-inter">
-          Technologies and tools I've worked with and have experience using in
-          various projects
+          {t("SkillSection.description")}
         </p>
       </motion.div>
 

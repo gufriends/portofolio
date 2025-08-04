@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const ProjectsSection: React.FC = () => {
   // Container variants untuk staggered animation
@@ -47,15 +48,14 @@ const ProjectsSection: React.FC = () => {
       },
     },
   };
-
+  const { t } = useTranslation();
   // Featured projects data - menggunakan iconify icons
   const featuredProjects = [
     {
       id: 1,
-      title: "SIPEMA - Public Complaint System",
+      title: t("ProjectSection.projects.0.title"),
       category: "Backend Development",
-      description:
-        "Public complaint management system for USK using Hono framework with TypeScript. Features RESTful APIs, PostgreSQL with Prisma ORM, user authentication, complaint tracking, and notification system.",
+      description: t("ProjectSection.projects.0.description"),
       imageSrc: "/coverProject/sipema.png",
       projectUrl: "#",
       technologies: [
@@ -67,10 +67,9 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 2,
-      title: "SIPEDAS - Employee Information System",
+      title: t("ProjectSection.projects.1.title"),
       category: "Full Stack Development",
-      description:
-        "Employee management system for Aceh Social Service Department built with Express.js and Node.js. Features MongoDB database, role-based access control, approval workflow, and data validation.",
+      description: t("ProjectSection.projects.1.description"),
       imageSrc: "/coverProject/sipedas.png",
       projectUrl: "https://sipedas.vercel.app/",
       technologies: [
@@ -81,10 +80,9 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 3,
-      title: "Fintrack - Financial App for SMEs",
+      title: t("ProjectSection.projects.2.title"),
       category: "Mobile Development",
-      description:
-        "Financial management application for SMEs with machine learning integration for expense categorization, financial forecasting, data visualization, and comprehensive financial tracking.",
+      description: t("ProjectSection.projects.2.description"),
       imageSrc: "/coverProject/fintrack.png",
       projectUrl: "#",
       technologies: [
@@ -131,15 +129,14 @@ const ProjectsSection: React.FC = () => {
             variants={titleVariants}
           >
             <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
-              Featured Projects
+              {t("ProjectSection.headline")}
             </span>
           </motion.h2>
           <motion.p
             className="text-gray-400 text-lg md:text-xl font-inter max-w-2xl"
             variants={titleVariants}
           >
-            Real-world projects showcasing backend development, system
-            architecture, and problem-solving skills
+            {t("ProjectSection.description")}
           </motion.p>
         </div>
 
@@ -151,7 +148,7 @@ const ProjectsSection: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              See All Projects
+              {t("ProjectSection.btnSeeAll")}
               <svg
                 className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
                 fill="none"

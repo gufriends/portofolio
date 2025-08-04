@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 
 /**
  * Technology icon type definition
@@ -37,6 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   imagePosition = "left",
   compact = false, // Default to false for backward compatibility
 }) => {
+  const { t } = useTranslation();
   // Compact layout - vertical card
   if (compact) {
     return (
@@ -121,7 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             rel="noopener noreferrer"
             className="inline-flex items-center text-sm text-[#3BF686] hover:text-[#4CA9FF] transition-colors font-semibold mt-4 group/link"
           >
-            View Project
+            {t("ProjectSection.btnViewDetails")}
             <svg
               className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform duration-200"
               fill="none"

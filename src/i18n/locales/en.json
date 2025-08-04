@@ -39,6 +39,33 @@
     "projects": "Projects Completed",
     "clients": "Happy Clients"
   },
+  "ProjectSection": {
+    "headline": "Featured Projects",
+    "description": "Real-world projects showcasing backend development, system architecture, and problem-solving skills",
+    "btnSeeAll": "See All Projects",
+    "btnViewDetails": "View Projects",
+    "projects": [
+      {
+        "title": "SIPEMA - Public Complaint System",
+        "category": "Backend Development",
+        "description": "Public complaint management system for USK using Hono framework with TypeScript. Features RESTful APIs, PostgreSQL with Prisma ORM, user authentication, complaint tracking, and notification system."
+      },
+      {
+        "title": "SIPEDAS - Employee Information System",
+        "category": "Backend Development",
+        "description": "Employee management system for Aceh Social Service Department built with Express.js and Node.js. Features MongoDB database, role-based access control, approval workflow, and data validation."
+      },
+      {
+        "title": "Fintrack - Financial App for SMEs",
+        "category": "Mobile Development",
+        "description": "Financial management application for SMEs with machine learning integration for expense categorization, financial forecasting, data visualization, and comprehensive financial tracking."
+      }
+    ]
+  },
+  "SkillSection": {
+    "title": "Tech Stack",
+    "description": "Technologies and tools I've worked with and have experience using in various projects"
+  },
   "skills": {
     "title": "What I do",
     "description": "I specialize in creating modern web applications using React, TypeScript, and other cutting-edge technologies. With a passion for clean code and user-centered design, I build responsive, interactive experiences that solve real-world problems. Currently working as a Software Engineer while finishing my Informatics degree, I bring both academic knowledge and practical industry experience to every project.",
@@ -55,6 +82,7 @@
     "sourceCode": "Source Code",
     "allProjects": "View All Projects"
   },
+
   "contact": {
     "title": "Let's connect",
     "description": "Let's work together on your next project",

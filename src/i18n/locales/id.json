@@ -39,6 +39,33 @@
     "projects": "Proyek Selesai",
     "clients": "Klien Puas"
   },
+  "ProjectSection": {
+    "headline": "Proyek Unggulan",
+    "description": "Proyek dunia nyata yang menampilkan pengembangan backend, arsitektur sistem, dan kemampuan pemecahan masalah",
+    "btnSeeAll": "Lihat Semua Proyek",
+    "btnViewDetails": "Lihat Proyek",
+    "projects": [
+      {
+        "title": "SIPEMA - Sistem Pengaduan Masyarakat",
+        "category": "Pengembangan Backend",
+        "description": "Sistem manajemen pengaduan masyarakat untuk USK menggunakan framework Hono dengan TypeScript. Fitur RESTful API, PostgreSQL dengan Prisma ORM, autentikasi pengguna, pelacakan pengaduan, dan sistem notifikasi."
+      },
+      {
+        "title": "SIPEDAS - Sistem Informasi Pegawai",
+        "category": "Pengembangan Backend",
+        "description": "Sistem manajemen pegawai untuk Dinas Sosial Aceh yang dibangun dengan Express.js dan Node.js. Fitur database MongoDB, kontrol akses berbasis peran, alur kerja persetujuan, dan validasi data."
+      },
+      {
+        "title": "Fintrack - Aplikasi Keuangan untuk UKM",
+        "category": "Pengembangan Mobile",
+        "description": "Aplikasi manajemen keuangan untuk UKM dengan integrasi machine learning untuk kategorisasi pengeluaran, peramalan keuangan, visualisasi data, dan pelacakan keuangan yang komprehensif."
+      }
+    ]
+  },
+  "SkillSection": {
+    "title": "Tech Stack",
+    "description": "Teknologi dan alat yang telah saya gunakan dan miliki pengalaman dalam berbagai proyek"
+  },
   "skills": {
     "title": "Yang Saya Lakukan",
     "description": "Saya mengkhususkan diri dalam membuat aplikasi web modern menggunakan React, TypeScript, dan teknologi canggih lainnya. Dengan passion untuk kode yang bersih dan desain yang berpusat pada pengguna, saya membangun pengalaman yang responsif dan interaktif yang menyelesaikan masalah dunia nyata. Saat ini bekerja sebagai Software Engineer sambil menyelesaikan gelar Informatika saya, saya menggabungkan pengetahuan akademis dan pengalaman industri praktis dalam setiap proyek.",
