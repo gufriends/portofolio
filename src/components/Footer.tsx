@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
             {/* Social links */}
             <div className="flex space-x-3">
               <a
-                href="https://github.com/username"
+                href="https://github.com/GhufranBkri"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF]"
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 <Icon icon="mdi:github" className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://www.linkedin.com/in/username"
+                href="https://www.linkedin.com/in/ghufranbakrie"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF]"
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                 <Icon icon="mdi:linkedin" className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://www.instagram.com/username"
+                href="https://www.instagram.com/ghufranb_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-r hover:from-[#3BF686] hover:to-[#4CA9FF]"
