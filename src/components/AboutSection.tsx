@@ -92,45 +92,6 @@ const AboutSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Skills - Selalu ditampilkan */}
-        <div className="bg-zinc-800/80 rounded-xl p-6 shadow-lg mb-8">
-          <h3 className="text-xl font-sora font-semibold text-white mb-4 flex items-center">
-            <span className="w-6 h-6 rounded-md bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] flex items-center justify-center mr-3">
-              <img src="/icons/Code.svg" className="w-3.5 h-3.5" alt="Skills" />
-            </span>
-            Skills
-          </h3>
-
-          {/* Skill categories */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Development */}
-            <div>
-              <h4 className="text-lg font-sora font-medium text-white mb-4">
-                Development
-              </h4>
-              <div className="space-y-3">
-                {renderSkillBar("React", 85)}
-                {renderSkillBar("TypeScript", 75)}
-                {renderSkillBar("CSS/Tailwind", 90)}
-                {renderSkillBar("Node.js", 65)}
-              </div>
-            </div>
-
-            {/* Design & Soft Skills */}
-            <div>
-              <h4 className="text-lg font-sora font-medium text-white mb-4">
-                Design & Soft Skills
-              </h4>
-              <div className="space-y-3">
-                {renderSkillBar("UX Research", 80)}
-                {renderSkillBar("UI Design", 70)}
-                {renderSkillBar("Agile Methodology", 85)}
-                {renderSkillBar("Team Management", 75)}
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Tombol Expand/Collapse */}
         <div className="flex justify-center mb-4">
           <button
