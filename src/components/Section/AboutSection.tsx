@@ -260,7 +260,7 @@ const AboutSection: React.FC = () => {
                         contentArrowStyle={{
                           borderRight: "7px solid rgba(39, 39, 42, 0.8)",
                         }}
-                        date="2021 - 2022"
+                        date="2025 - Now"
                         dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
                         iconStyle={{
                           background:

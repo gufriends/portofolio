@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { track } from "@vercel/analytics";
 import { Icon } from "@iconify/react";
+import GradientText from "../effects/GradientTextProps";
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
@@ -73,9 +74,14 @@ const HeroSection: React.FC = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-sora font-bold leading-[0.9]">
               <span className="text-white">Muhammad</span>
               <br />
-              <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
+              <GradientText
+                colors={["#3BF686", "#4CA9FF", "#3BF686", "#4CA9FF", "#3BF686"]}
+                animationSpeed={1}
+                showBorder={false}
+                className=""
+              >
                 Ghufran
-              </span>
+              </GradientText>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 font-light max-w-2xl">
