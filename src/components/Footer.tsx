@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full bg-zinc-900/70 pt-16 pb-8 mt-12">
+    <footer className="relative w-full bg-zinc-900/80 backdrop-blur-sm pt-16 pb-8 mt-12 z-10">
       {/* Container dengan max-width dan padding yang sama */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Top section with logo, nav and socials */}

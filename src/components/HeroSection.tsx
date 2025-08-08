@@ -1,12 +1,11 @@
 import React from "react";
-import ServiceCard from "./ServiceCard";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { track } from "@vercel/analytics";
+import { Icon } from "@iconify/react";
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
-  // Container variants untuk staggered animation
 
   // Track social media clicks
   const trackSocialClick = (platform: string) => {
@@ -23,24 +22,23 @@ const HeroSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
 
-  // Item variants - simple fade up
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 30,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeOut",
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
@@ -48,186 +46,201 @@ const HeroSection: React.FC = () => {
   return (
     <motion.section
       id="home"
-      className="w-full flex flex-col pt-6 md:pt-12 items-start text-start relative px-4 md:px-6 lg:px-8"
+      className="w-full min-h-screen flex flex-col justify-center relative py-16 md:py-20"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      {/* Background wrapper yang lebih besar */}
-      <div className="absolute inset-0 w-full h-full -z-10 overflow-visible">
-        {/* Responsive glow effects */}
-        <div className="absolute -left-[20%] md:-left-[10%] top-[20%] w-[60vw] md:w-[40vw] h-[60vw] md:h-[40vw] bg-gradient-to-r from-[#3BF686]/10 to-[#3BF686]/30 rounded-full filter blur-[100px] md:blur-[150px]" />
-        <div className="absolute -right-[15%] md:-right-[5%] bottom-[10%] w-[50vw] md:w-[35vw] h-[50vw] md:h-[35vw] bg-gradient-to-r from-[#4CA9FF]/30 to-[#4CA9FF]/10 rounded-full filter blur-[100px] md:blur-[150px]" />
-        <div className="absolute left-[20%] md:left-[30%] top-[60%] w-[35vw] md:w-[25vw] h-[35vw] md:h-[25vw] bg-gradient-to-r from-[#3BF686]/10 to-[#4CA9FF]/10 rounded-full filter blur-[80px] md:blur-[120px]" />
-        <div className="absolute left-[40%] md:left-[50%] top-[10%] w-[30vw] md:w-[20vw] h-[30vw] md:h-[20vw] bg-gradient-to-r from-[#4CA9FF]/5 to-[#3BF686]/5 rounded-full filter blur-[80px] md:blur-[100px]" />
-      </div>
+      {/* Minimal background glow */}
+      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#3BF686]/4 rounded-full filter blur-[100px] -z-10" />
 
-      {/* Hero Title */}
-      <motion.div className="relative z-10 w-full" variants={itemVariants}>
-        <h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sora font-bold mb-5 text-left leading-tight"
-          style={{
-            background: "linear-gradient(79deg, #3BF686, #4CA9FF)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          {t("hero.heading")}
-        </h2>
-      </motion.div>
+      {/* Main Layout Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* Left Side - Main Content */}
+        <div className="lg:col-span-8 space-y-6">
+          {/* Status Badge */}
+          <motion.div variants={itemVariants}>
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-[#3BF686]/20 bg-[#3BF686]/5">
+              <div className="w-1.5 h-1.5 bg-[#3BF686] rounded-full mr-2 animate-pulse"></div>
+              <span className="text-[#3BF686] text-xs font-medium">
+                Available for hire
+              </span>
+            </div>
+          </motion.div>
 
-      {/* Avatar, Biography, and Connect Section */}
-      <motion.div
-        className="flex flex-col lg:flex-row mt-6 md:mt-8 w-full relative z-10 gap-8 lg:gap-8"
-        variants={itemVariants}
-      >
-        {/* Avatar Section */}
-        <div className="flex justify-center lg:justify-start lg:w-60 lg:flex-shrink-0">
-          <div className="relative">
-            <div className="absolute inset-0 scale-125 bg-gradient-to-r from-[#3BF686]/40 to-[#4CA9FF]/40 rounded-full blur-xl opacity-50 -z-10"></div>
-            <img
-              src="/Avatar.svg"
-              alt="Muhammad Ghufran"
-              className="w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52 relative z-10 object-cover rounded-full shadow-lg"
-            />
-          </div>
-        </div>
+          {/* Name */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-sora font-bold leading-[0.9]">
+              <span className="text-white">Muhammad</span>
+              <br />
+              <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
+                Ghufran
+              </span>
+            </h1>
 
-        {/* Biography Section */}
-        <div className="lg:flex-1 text-center lg:text-left">
-          <h4 className="font-semibold font-sora text-lg md:text-xl mb-4">
-            {t("hero.biography")}
-          </h4>
-          <p className="text-gray-300 font-inter leading-relaxed text-sm md:text-base mb-6 lg:mb-0">
-            {t("hero.contentBiography")}
-          </p>
-        </div>
+            <p className="text-lg md:text-xl text-gray-400 font-light max-w-2xl">
+              {t("hero.heading")}
+            </p>
+          </motion.div>
 
-        {/* Connect Section - Paling Kanan */}
-        <div className="lg:w-64 lg:flex-shrink-0 text-center lg:text-right">
-          <h4 className="font-semibold font-sora text-lg md:text-xl mb-4 tracking-wider">
-            {t("hero.Let's connect")}
-          </h4>
-          <div className="flex flex-col items-center lg:items-end gap-6">
-            {/* Social Media Icons */}
-            <div className="flex flex-row justify-center lg:justify-end gap-4">
-              <a
-                href="https://www.instagram.com/ghufranb_"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-transform hover:scale-110 duration-300"
-                aria-label="Instagram"
-                onClick={() => trackSocialClick("instagram")}
+          {/* Bio */}
+          <motion.div variants={itemVariants}>
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
+              {t("hero.contentBiography")}
+            </p>
+          </motion.div>
+
+          {/* CTA Buttons & Social Links */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row sm:items-center gap-6 pt-2"
+          >
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                href="/resume.pdf"
+                download="Muhammad_Ghufran_CV.pdf"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] text-black font-semibold rounded-lg text-sm"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={trackCVDownload}
               >
-                <img
-                  src="/icons/instgram.svg"
-                  alt="Instagram"
-                  className="w-6 h-6 md:w-7 md:h-7"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ghufranbakrie/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-transform hover:scale-110 duration-300"
-                aria-label="LinkedIn"
-                onClick={() => trackSocialClick("linkedin")}
+                <Icon icon="lucide:download" className="w-4 h-4 mr-2" />
+                Download CV
+              </motion.a>
+
+              <motion.a
+                href="#projects"
+                className="inline-flex items-center px-6 py-3 border border-gray-600 text-white font-semibold rounded-lg hover:border-[#3BF686] transition-colors text-sm"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <img
-                  src="/icons/linkedin.svg"
-                  alt="LinkedIn"
-                  className="w-6 h-6 md:w-7 md:h-7"
-                />
-              </a>
-              <a
-                href="mailto:ghufranbakrie@gmail.com"
-                className="transition-transform hover:scale-110 duration-300"
-                aria-label="Email"
-                onClick={() => trackSocialClick("email")}
-              >
-                <img
-                  src="/icons/mail.svg"
-                  alt="Email"
-                  className="w-6 h-6 md:w-7 md:h-7"
-                />
-              </a>
+                View Work
+              </motion.a>
             </div>
 
-            {/* Download CV Button */}
-            <motion.a
-              href="/resume.pdf"
-              download="Muhammad_Ghufran_CV.pdf"
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] text-black font-semibold rounded-full hover:shadow-lg hover:shadow-[#3BF686]/25 transition-all duration-300 text-sm md:text-base"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Download CV"
-              onClick={trackCVDownload}
-            >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            {/* Social Links - Horizontal */}
+            <div className="flex items-center space-x-3">
+              {[
+                {
+                  href: "https://www.linkedin.com/in/ghufranbakrie/",
+                  icon: "mdi:linkedin",
+                  name: "linkedin",
+                },
+                {
+                  href: "https://github.com/yourusername",
+                  icon: "mdi:github",
+                  name: "github",
+                },
+                {
+                  href: "https://www.instagram.com/ghufranb_",
+                  icon: "mdi:instagram",
+                  name: "instagram",
+                },
+                {
+                  href: "mailto:ghufranbakrie@gmail.com",
+                  icon: "mdi:email",
+                  name: "email",
+                },
+              ].map((social) => (
+                <motion.a
+                  key={social.name}
+                  href={social.href}
+                  target={social.name !== "email" ? "_blank" : undefined}
+                  rel={
+                    social.name !== "email" ? "noopener noreferrer" : undefined
+                  }
+                  className="p-2.5 rounded-lg border border-gray-700/30 hover:border-[#3BF686]/50 bg-gray-800/10 hover:bg-[#3BF686]/5 transition-all duration-300 w-10 h-10 flex items-center justify-center group"
+                  onClick={() => trackSocialClick(social.name)}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Icon
+                    icon={social.icon}
+                    className="w-4 h-4 text-gray-400 group-hover:text-[#3BF686] transition-colors"
+                  />
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right Side - Creative Profile Section */}
+        <div className="lg:col-span-4 flex flex-col items-center lg:items-end">
+          {/* Avatar only */}
+          <motion.div variants={itemVariants} className="relative group">
+            <div className="relative">
+              <motion.div
+                className="absolute -top-6 -right-6 w-12 h-12 border border-[#3BF686]/20 rounded-full"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute -bottom-6 -left-6 w-8 h-8 bg-[#4CA9FF]/10 rounded-lg"
+                animate={{ rotate: [0, 180, 360] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              />
+
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3BF686]/5 to-[#4CA9FF]/5 rounded-3xl blur-lg"></div>
+                <img
+                  src="/Avatar.svg"
+                  alt="Muhammad Ghufran"
+                  className="relative z-10 w-40 h-40 md:w-48 md:h-48 object-cover rounded-3xl shadow-2xl"
+                  style={{
+                    clipPath:
+                      "polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%)",
+                  }}
                 />
-              </svg>
-              {t("hero.downloadResume")}
-            </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom Section - Tech Stack */}
+      <motion.div
+        variants={itemVariants}
+        className="absolute bottom-6 left-4 md:left-8 hidden lg:block"
+      >
+        <div className="flex items-center space-x-3 text-gray-500">
+          <span className="text-xs">Built with</span>
+          <div className="flex space-x-2">
+            <Icon icon="logos:react" className="w-4 h-4" />
+            <Icon icon="logos:typescript-icon" className="w-4 h-4" />
+            <Icon icon="logos:tailwindcss-icon" className="w-4 h-4" />
           </div>
         </div>
       </motion.div>
 
-      {/* What I do and Service Cards Section */}
+      {/* Scroll Indicator */}
       <motion.div
-        className="flex flex-col lg:flex-row lg:items-start lg:justify-between w-full mt-12 md:mt-16 lg:mt-20 relative z-10 gap-6"
         variants={itemVariants}
+        className="absolute bottom-6 right-4 md:right-8 hidden lg:block"
       >
-        {/* What I do Section */}
-        <div className="lg:w-[28.625rem] text-center lg:text-left">
-          <h4 className="font-semibold font-sora text-lg md:text-xl mb-4">
-            {t("hero.What I do")}
-          </h4>
-          <p className="text-[#EDCECE] font-inter leading-relaxed tracking-[0.014em] text-sm md:text-base">
-            {t("hero.descWhatIDo")}
-          </p>
-        </div>
-
-        {/* Service Cards - Stack on mobile, side by side on desktop */}
-        <div className="flex flex-col sm:flex-row gap-6 lg:gap-4 justify-center lg:justify-end">
-          <motion.div
-            className="relative group flex justify-center"
-            variants={itemVariants}
-          >
-            <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
-            <ServiceCard
-              iconSrc="/icons/frontendIcon.png"
-              iconAlt="Web Development"
-              title="Frontend Development"
-              description={t("hero.jobDes1")}
-            />
-          </motion.div>
-
-          <motion.div
-            className="relative group flex justify-center"
-            variants={itemVariants}
-          >
-            <div className="absolute inset-0 scale-110 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 -z-10"></div>
-            <ServiceCard
-              iconSrc="/icons/backend icon.png"
-              iconAlt="Web Development"
-              title="Backend Development"
-              description={t("hero.jobDes2")}
-            />
-          </motion.div>
-        </div>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center text-gray-400 cursor-pointer group"
+          onClick={() =>
+            document.getElementById("projects")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+        >
+          <span className="text-xs mb-2 group-hover:text-[#3BF686] transition-colors">
+            Scroll
+          </span>
+          <div className="w-px h-6 bg-gradient-to-b from-transparent via-gray-400 to-transparent group-hover:via-[#3BF686] transition-colors"></div>
+          <Icon
+            icon="lucide:chevron-down"
+            className="w-3 h-3 mt-1 group-hover:text-[#3BF686] transition-colors"
+          />
+        </motion.div>
       </motion.div>
     </motion.section>
   );

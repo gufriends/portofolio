@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection";
 import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";
 import AboutSection from "../components/AboutSection";
+import DotGrid from "../components/DotGrid";
 
 const LandingPage: React.FC = () => {
   // Container variants untuk staggered children
@@ -38,31 +39,49 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <motion.main
-      className="w-full pb-20 md:pb-0"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {/* Container dengan max-width dan padding konsisten */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-16 md:space-y-24 lg:space-y-32">
-        <motion.div variants={sectionVariants}>
-          <HeroSection />
-        </motion.div>
-
-        <motion.div variants={sectionVariants}>
-          <ProjectsSection />
-        </motion.div>
-
-        <motion.div variants={sectionVariants}>
-          <SkillsSection />
-        </motion.div>
-
-        <motion.div variants={sectionVariants}>
-          <AboutSection />
-        </motion.div>
+    <div className="relative w-full min-h-screen">
+      {/* DotGrid Background */}
+      <div className="fixed inset-0 w-full h-full z-0">
+        <DotGrid
+          dotSize={3}
+          gap={20}
+          baseColor="#1f2937"
+          activeColor="#6366f1"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+        />
       </div>
-    </motion.main>
+
+      {/* Main Content */}
+      <motion.main
+        className="relative z-10 w-full pb-20 md:pb-0"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Container dengan max-width dan padding konsisten */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-16 md:space-y-24 lg:space-y-32">
+          <motion.div variants={sectionVariants}>
+            <HeroSection />
+          </motion.div>
+
+          <motion.div variants={sectionVariants}>
+            <ProjectsSection />
+          </motion.div>
+
+          <motion.div variants={sectionVariants}>
+            <SkillsSection />
+          </motion.div>
+
+          <motion.div variants={sectionVariants}>
+            <AboutSection />
+          </motion.div>
+        </div>
+      </motion.main>
+    </div>
   );
 };
 

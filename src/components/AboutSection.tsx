@@ -53,7 +53,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-20 w-full bg-zinc-900/30 rounded-3xl shadow-xl overflow-hidden transition-all duration-700"
+      className="py-20 w-full bg-zinc-900/90 rounded-3xl shadow-xl overflow-hidden transition-all duration-700"
       style={{
         minHeight: isExpanded ? "auto" : "auto",
       }}
