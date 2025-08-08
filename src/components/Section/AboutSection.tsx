@@ -1,54 +1,23 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const AboutSection: React.FC = () => {
   // State untuk mengontrol tampilan konten
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const renderSkillBar = (skillName: string, percentage: number) => {
-    return (
-      <div>
-        <div className="flex justify-between mb-1">
-          <span className="text-sm font-inter text-neutral-300">
-            {skillName}
-          </span>
-          <span className="text-sm font-inter text-neutral-400">
-            {percentage}%
-          </span>
-        </div>
-        <div className="h-2 bg-zinc-700 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-[#3BF686] to-[#4CA9FF]"
-            style={{ width: `${percentage}%` }}
-          ></div>
-        </div>
-      </div>
-    );
-  };
+  const WorkIcon = () => (
+    <Icon icon="mdi:briefcase" className="w-4 h-4 text-white" />
+  );
 
-  const renderTimelineItem = (
-    period: string,
-    title: string,
-    position: string,
-    description: string
-  ) => {
-    return (
-      <div className="mb-8 relative">
-        <div className="absolute -left-[26px] top-1.5 w-4 h-4 rounded-full bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] p-[2px]">
-          <div className="w-full h-full bg-zinc-800 rounded-full"></div>
-        </div>
-
-        <p className="text-sm font-inter text-[#4CA9FF] mb-1">{period}</p>
-        <h4 className="text-lg font-sora font-semibold text-white mb-0.5">
-          {title}
-        </h4>
-        <p className="text-sm font-inter font-medium text-neutral-300 mb-2">
-          {position}
-        </p>
-        <p className="text-neutral-400 font-inter text-sm">{description}</p>
-      </div>
-    );
-  };
+  const EducationIcon = () => (
+    <Icon icon="mdi:school" className="w-4 h-4 text-white" />
+  );
 
   return (
     <section
@@ -70,11 +39,7 @@ const AboutSection: React.FC = () => {
         <div className="bg-zinc-800/80 rounded-xl p-6 shadow-lg mb-8">
           <h3 className="text-xl font-sora font-semibold text-white mb-4 flex items-center">
             <span className="w-6 h-6 rounded-md bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] flex items-center justify-center mr-3">
-              <img
-                src="/icons/User.svg"
-                className="w-3.5 h-3.5"
-                alt="Biography"
-              />
+              <Icon icon="mdi:account" className="w-3.5 h-3.5 text-white" />
             </span>
             Biography
           </h3>
@@ -197,61 +162,141 @@ const AboutSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Education & Experience */}
+                {/* Education & Experience with Vertical Timeline */}
                 <div className="md:col-span-8">
                   <div className="bg-zinc-800/80 rounded-xl p-6 shadow-lg">
                     <h3 className="text-xl font-sora font-semibold text-white mb-6 flex items-center">
                       <span className="w-6 h-6 rounded-md bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] flex items-center justify-center mr-3">
-                        <img
-                          src="/icons/Briefcase.svg"
-                          className="w-3.5 h-3.5"
-                          alt="Experience"
+                        <Icon
+                          icon="mdi:briefcase"
+                          className="w-3.5 h-3.5 text-white"
                         />
                       </span>
                       Education & Experience
                     </h3>
 
-                    <div className="relative pl-8 before:absolute before:left-2 before:top-2 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-[#3BF686] before:to-[#4CA9FF]">
-                      {/* Timeline items with staggered animation */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.6 }}
+                    <VerticalTimeline lineColor="linear-gradient(to bottom, #3BF686, #4CA9FF)">
+                      <VerticalTimelineElement
+                        className="vertical-timeline-element--education"
+                        contentStyle={{
+                          background: "rgba(39, 39, 42, 0.8)",
+                          color: "#fff",
+                          border: "1px solid rgba(59, 246, 134, 0.2)",
+                          borderRadius: "12px",
+                          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                        }}
+                        contentArrowStyle={{
+                          borderRight: "7px solid rgba(39, 39, 42, 0.8)",
+                        }}
+                        date="2021 - Present"
+                        dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
+                        iconStyle={{
+                          background:
+                            "linear-gradient(135deg, #3BF686, #4CA9FF)",
+                          color: "#fff",
+                          border: "3px solid rgba(59, 246, 134, 0.3)",
+                        }}
+                        icon={<EducationIcon />}
                       >
-                        {renderTimelineItem(
-                          "2021 - Present",
-                          "University of Syiah Kuala",
-                          "Software Engineering",
-                          "Studying software architecture, agile methodologies, and full-stack development. Active in campus tech communities."
-                        )}
-                      </motion.div>
+                        <h3 className="text-lg font-sora font-semibold text-white">
+                          University of Syiah Kuala
+                        </h3>
+                        <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
+                          Software Engineering
+                        </h4>
+                        <p className="text-neutral-300 font-inter text-sm">
+                          Studying software architecture, agile methodologies,
+                          and full-stack development. Active in campus tech
+                          communities.
+                        </p>
+                      </VerticalTimelineElement>
 
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.6 }}
+                      <VerticalTimelineElement
+                        className="vertical-timeline-element--education"
+                        contentStyle={{
+                          background: "rgba(39, 39, 42, 0.8)",
+                          color: "#fff",
+                          border: "1px solid rgba(59, 246, 134, 0.2)",
+                          borderRadius: "12px",
+                          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                        }}
+                        contentArrowStyle={{
+                          borderRight: "7px solid rgba(39, 39, 42, 0.8)",
+                        }}
+                        date="Feb 2024 - Jun 2024"
+                        dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
+                        iconStyle={{
+                          background:
+                            "linear-gradient(135deg, #3BF686, #4CA9FF)",
+                          color: "#fff",
+                          border: "3px solid rgba(59, 246, 134, 0.3)",
+                        }}
+                        icon={<EducationIcon />}
                       >
-                        {renderTimelineItem(
-                          "2022 - Present",
-                          "MOFON Mentorship",
-                          "Frontend Developer & Mentor",
-                          "Build and maintain websites, while mentoring junior developers. Focusing on modern frontend frameworks and best practices."
-                        )}
-                      </motion.div>
+                        <h3 className="text-lg font-sora font-semibold text-white">
+                          Bangkit Academy
+                        </h3>
+                        <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
+                          Mobile Development
+                        </h4>
+                        <p className="text-neutral-300 font-inter text-sm">
+                          Developed Android apps using Kotlin with focus on
+                          performance and UX. Built Fintrack capstone project -
+                          financial app with ML integration. Enhanced
+                          problem-solving skills through real-world mobile
+                          development.
+                        </p>
+                      </VerticalTimelineElement>
 
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.6 }}
+                      <VerticalTimelineElement
+                        className="vertical-timeline-element--work"
+                        contentStyle={{
+                          background: "rgba(39, 39, 42, 0.8)",
+                          color: "#fff",
+                          border: "1px solid rgba(59, 246, 134, 0.2)",
+                          borderRadius: "12px",
+                          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                        }}
+                        contentArrowStyle={{
+                          borderRight: "7px solid rgba(39, 39, 42, 0.8)",
+                        }}
+                        date="2021 - 2022"
+                        dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
+                        iconStyle={{
+                          background:
+                            "linear-gradient(135deg, #3BF686, #4CA9FF)",
+                          color: "#fff",
+                          border: "3px solid rgba(59, 246, 134, 0.3)",
+                        }}
+                        icon={<WorkIcon />}
                       >
-                        {renderTimelineItem(
-                          "2021 - 2022",
-                          "Freelance Web Developer",
-                          "Frontend Specialist",
-                          "Developed responsive websites and applications for various clients, focusing on clean code and optimal user experience."
-                        )}
-                      </motion.div>
-                    </div>
+                        <h3 className="text-lg font-sora font-semibold text-white">
+                          Freelance Web Developer
+                        </h3>
+                        <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
+                          Frontend Specialist
+                        </h4>
+                        <p className="text-neutral-300 font-inter text-sm">
+                          Developed responsive websites and applications for
+                          various clients, focusing on clean code and optimal
+                          user experience.
+                        </p>
+                      </VerticalTimelineElement>
+
+                      <VerticalTimelineElement
+                        iconStyle={{
+                          background:
+                            "linear-gradient(135deg, #3BF686, #4CA9FF)",
+                          color: "#fff",
+                        }}
+                        icon={
+                          <Icon
+                            icon="mdi:star"
+                            className="w-4 h-4 text-white"
+                          />
+                        }
+                      />
+                    </VerticalTimeline>
                   </div>
                 </div>
               </div>

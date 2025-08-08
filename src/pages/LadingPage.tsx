@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroSection from "../components/HeroSection";
-import ProjectsSection from "../components/ProjectsSection";
-import SkillsSection from "../components/SkillsSection";
-import AboutSection from "../components/AboutSection";
-import DotGrid from "../components/DotGrid";
+import HeroSection from "../components/Section/HeroSection";
+import ProjectsSection from "../components/Section/ProjectsSection";
+import SkillsSection from "../components/Section/SkillsSection";
+import AboutSection from "../components/Section/AboutSection";
+import DotGrid from "../components/effects/DotGrid";
 
 const LandingPage: React.FC = () => {
   // Container variants untuk staggered children

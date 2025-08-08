@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import "./i18n"; // Import i18n configuration
-import Footer from "./components/Footer";
+import Footer from "./components/layout/Footer";
 import LandingPage from "./pages/LadingPage";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import ProjectsPage from "./pages/ProjectsPage";
 import { useEffect } from "react";
 import { track } from "@vercel/analytics";

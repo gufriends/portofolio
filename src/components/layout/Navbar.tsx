@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "../features/LanguageSwitcher";
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState("home");

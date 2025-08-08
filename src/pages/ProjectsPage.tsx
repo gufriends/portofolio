@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/features/ProjectCard";
 
 const ProjectsPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("All");
