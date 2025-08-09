@@ -26,9 +26,6 @@ const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
       <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] opacity-0 group-hover:opacity-20 filter blur-lg transition-opacity duration-300 -z-10"></div>
 
       {/* Content Box */}
-      {/* `relative` ensures this box is stacked above the -z-10 glow.
-          Its own background (bg-zinc-800) will obscure the part of the glow directly behind it.
-          The glow will be visible around the edges. */}
       <div className="bg-zinc-800 rounded-xl p-5 shadow-lg flex flex-col items-center relative transition-colors duration-300 ">
         <div className="w-16 h-16 mb-4 flex items-center justify-center bg-zinc-700 rounded-lg relative z-10">
           <Icon icon={icon} width="40" height="40" />
