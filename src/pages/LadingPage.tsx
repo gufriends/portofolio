@@ -13,7 +13,6 @@ const ProjectsSection = lazy(
 const LandingPage: React.FC = React.memo(() => {
   const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const checkDevice = () => {
@@ -30,18 +29,13 @@ const LandingPage: React.FC = React.memo(() => {
     checkDevice();
     window.addEventListener("resize", checkDevice);
     mediaQuery.addEventListener("change", handleChange);
-
-    // Set loaded after initial render
-    const timer = setTimeout(() => setIsLoaded(true), 100);
-
     return () => {
       window.removeEventListener("resize", checkDevice);
       mediaQuery.removeEventListener("change", handleChange);
-      clearTimeout(timer);
     };
   }, []);
 
-  // Optimized animations
+  // Simplified animations for reduced motion
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,8 +43,8 @@ const LandingPage: React.FC = React.memo(() => {
       transition: prefersReducedMotion
         ? { duration: 0.1 }
         : {
-            staggerChildren: 0.1,
-            delayChildren: 0.05,
+            staggerChildren: 0.15,
+            delayChildren: 0.1,
           },
     },
   };
@@ -60,8 +54,8 @@ const LandingPage: React.FC = React.memo(() => {
       ? { opacity: 0 }
       : {
           opacity: 0,
-          y: 20,
-          scale: 0.98,
+          y: 30,
+          scale: 0.95,
         },
     visible: prefersReducedMotion
       ? { opacity: 1 }
@@ -70,44 +64,42 @@ const LandingPage: React.FC = React.memo(() => {
           y: 0,
           scale: 1,
           transition: {
-            duration: 0.4,
+            duration: 0.6,
             ease: [0.25, 0.4, 0.25, 1],
             type: "tween",
           },
         },
   };
 
-  // Optimized DotGrid props
+  // DotGrid props
   const dotGridProps = useMemo(
     () => ({
-      dotSize: isMobile ? 2 : 3,
-      gap: isMobile ? 25 : 20,
+      dotSize: 3,
+      gap: 20,
       baseColor: "#1f2937",
       activeColor: "#6366f1",
-      proximity: isMobile ? 80 : 120,
-      shockRadius: isMobile ? 150 : 250,
-      shockStrength: isMobile ? 3 : 5,
+      proximity: 120,
+      shockRadius: 250,
+      shockStrength: 5,
       resistance: 750,
       returnDuration: 1.5,
     }),
-    [isMobile]
+    []
   );
 
   return (
     <div className="relative w-full min-h-screen">
-      {/* Background - Only load after initial render */}
-      {!isMobile && isLoaded && (
+      {/* DotGrid Background - Disable on mobile */}
+      {!isMobile && (
         <div className="fixed inset-0 w-full h-full z-0">
-          <Suspense fallback={<div className="bg-gray-900 w-full h-full" />}>
+          <Suspense fallback={<div />}>
             <DotGrid {...dotGridProps} />
           </Suspense>
         </div>
       )}
 
-      {/* Mobile Background */}
-      {isMobile && (
-        <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900" />
-      )}
+      {/* Mobile Background Alternative */}
+      {isMobile && <div className="fixed inset-0 w-full h-full z-0 " />}
 
       {/* Main Content */}
       <motion.main
@@ -116,6 +108,7 @@ const LandingPage: React.FC = React.memo(() => {
         initial="hidden"
         animate="visible"
       >
+        {/* Container dengan max-width dan padding konsisten */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-16 md:space-y-24 lg:space-y-32">
           <motion.div variants={sectionVariants}>
             <HeroSection />
@@ -143,7 +136,5 @@ const LandingPage: React.FC = React.memo(() => {
     </div>
   );
 });
-
-LandingPage.displayName = "LandingPage";
 
 export default LandingPage;
