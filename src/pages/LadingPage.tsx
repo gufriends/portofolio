@@ -1,12 +1,43 @@
 import React from "react";
+import { motion } from "framer-motion";
 import HeroSection from "../components/Section/HeroSection";
 import ProjectsSection from "../components/Section/ProjectsSection";
 import SkillsSection from "../components/Section/SkillsSection";
 import AboutSection from "../components/Section/AboutSection";
 import DotGrid from "../components/effects/DotGrid";
-import SectionScrollFloat from "../components/effects/SectionScrollFloat";
 
 const LandingPage: React.FC = () => {
+  // Container variants untuk staggered children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  // Item variants untuk setiap section
+  const sectionVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.4, 0.25, 1],
+        type: "tween",
+      },
+    },
+  };
+
   return (
     <div className="relative w-full min-h-screen">
       {/* DotGrid Background */}
@@ -25,58 +56,31 @@ const LandingPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 w-full pb-20 md:pb-0">
+      <motion.main
+        className="relative z-10 w-full pb-20 md:pb-0"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Container dengan max-width dan padding konsisten */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-16 md:space-y-24 lg:space-y-32">
-          {/* Hero Section with ScrollFloat */}
-          <section id="home">
-            <SectionScrollFloat
-              animationDuration={1}
-              ease="back.inOut(2)"
-              scrollStart="top bottom-=100"
-              scrollEnd="bottom top+=100"
-            >
-              <HeroSection />
-            </SectionScrollFloat>
-          </section>
+          <motion.div variants={sectionVariants}>
+            <HeroSection />
+          </motion.div>
 
-          {/* Projects Section with ScrollFloat */}
-          <section id="projects">
-            <SectionScrollFloat
-              animationDuration={1.2}
-              ease="back.inOut(2)"
-              scrollStart="top bottom-=100"
-              scrollEnd="bottom top+=100"
-            >
-              <ProjectsSection />
-            </SectionScrollFloat>
-          </section>
+          <motion.div variants={sectionVariants}>
+            <ProjectsSection />
+          </motion.div>
 
-          {/* Skills Section with ScrollFloat */}
-          <section id="skills">
-            <SectionScrollFloat
-              animationDuration={1.1}
-              ease="back.inOut(2)"
-              scrollStart="top bottom-=100"
-              scrollEnd="bottom top+=100"
-            >
-              <SkillsSection />
-            </SectionScrollFloat>
-          </section>
+          <motion.div variants={sectionVariants}>
+            <SkillsSection />
+          </motion.div>
 
-          {/* About Section with ScrollFloat */}
-          <section id="about">
-            <SectionScrollFloat
-              animationDuration={1.3}
-              ease="back.inOut(2)"
-              scrollStart="top bottom-=100"
-              scrollEnd="bottom top+=100"
-            >
-              <AboutSection />
-            </SectionScrollFloat>
-          </section>
+          <motion.div variants={sectionVariants}>
+            <AboutSection />
+          </motion.div>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 };
