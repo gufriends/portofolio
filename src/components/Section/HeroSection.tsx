@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { track } from "@vercel/analytics";
@@ -7,6 +7,16 @@ import GradientText from "../effects/GradientTextProps";
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
   // Track social media clicks
   const trackSocialClick = (platform: string) => {
@@ -23,8 +33,8 @@ const HeroSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: isMobile ? 0.1 : 0.15,
+        delayChildren: isMobile ? 0.1 : 0.2,
       },
     },
   };
@@ -32,13 +42,13 @@ const HeroSection: React.FC = () => {
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 30,
+      y: isMobile ? 15 : 30,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: isMobile ? 0.4 : 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
@@ -52,8 +62,10 @@ const HeroSection: React.FC = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Minimal background glow */}
-      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#3BF686]/4 rounded-full filter blur-[100px] -z-10" />
+      {/* Minimal background glow - Disable di mobile untuk performa */}
+      {!isMobile && (
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#3BF686]/4 rounded-full filter blur-[100px] -z-10" />
+      )}
 
       {/* Main Layout Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -76,7 +88,7 @@ const HeroSection: React.FC = () => {
               <br />
               <GradientText
                 colors={["#3BF686", "#4CA9FF", "#3BF686", "#4CA9FF", "#3BF686"]}
-                animationSpeed={1}
+                animationSpeed={isMobile ? 0.5 : 1}
                 showBorder={false}
                 className=""
               >
@@ -107,7 +119,7 @@ const HeroSection: React.FC = () => {
                 href="/resume.pdf"
                 download="Muhammad_Ghufran_CV.pdf"
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] text-black font-semibold rounded-lg text-sm"
-                whileHover={{ scale: 1.02 }}
+                whileHover={!isMobile ? { scale: 1.02 } : {}}
                 whileTap={{ scale: 0.98 }}
                 onClick={trackCVDownload}
               >
@@ -118,7 +130,7 @@ const HeroSection: React.FC = () => {
               <motion.a
                 href="#projects"
                 className="inline-flex items-center px-6 py-3 border border-gray-600 text-white font-semibold rounded-lg hover:border-[#3BF686] transition-colors text-sm"
-                whileHover={{ scale: 1.02 }}
+                whileHover={!isMobile ? { scale: 1.02 } : {}}
                 whileTap={{ scale: 0.98 }}
               >
                 View Work
@@ -158,7 +170,7 @@ const HeroSection: React.FC = () => {
                   }
                   className="p-2.5 rounded-lg border border-gray-700/30 hover:border-[#3BF686]/50 bg-gray-800/10 hover:bg-[#3BF686]/5 transition-all duration-300 w-10 h-10 flex items-center justify-center group"
                   onClick={() => trackSocialClick(social.name)}
-                  whileHover={{ y: -2 }}
+                  whileHover={!isMobile ? { y: -2 } : {}}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Icon
@@ -176,20 +188,29 @@ const HeroSection: React.FC = () => {
           {/* Avatar only */}
           <motion.div variants={itemVariants} className="relative group">
             <div className="relative">
-              <motion.div
-                className="absolute -top-6 -right-6 w-12 h-12 border border-[#3BF686]/20 rounded-full"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-6 -left-6 w-8 h-8 bg-[#4CA9FF]/10 rounded-lg"
-                animate={{ rotate: [0, 180, 360] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              />
+              {/* Disable animasi floating di mobile */}
+              {!isMobile && (
+                <>
+                  <motion.div
+                    className="absolute -top-6 -right-6 w-12 h-12 border border-[#3BF686]/20 rounded-full"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute -bottom-6 -left-6 w-8 h-8 bg-[#4CA9FF]/10 rounded-lg"
+                    animate={{ rotate: [0, 180, 360] }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  />
+                </>
+              )}
 
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#3BF686]/5 to-[#4CA9FF]/5 rounded-3xl blur-lg"></div>
@@ -229,8 +250,12 @@ const HeroSection: React.FC = () => {
         className="absolute bottom-6 right-4 md:right-8 hidden lg:block"
       >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={!isMobile ? { y: [0, 6, 0] } : {}}
+          transition={
+            !isMobile
+              ? { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              : {}
+          }
           className="flex flex-col items-center text-gray-400 cursor-pointer group"
           onClick={() =>
             document.getElementById("projects")?.scrollIntoView({

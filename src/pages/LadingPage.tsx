@@ -35,40 +35,46 @@ const LandingPage: React.FC = React.memo(() => {
     };
   }, []);
 
-  // Simplified animations for reduced motion
+  // Simplified animations untuk mobile dan reduced motion
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: prefersReducedMotion
-        ? { duration: 0.1 }
-        : {
-            staggerChildren: 0.15,
-            delayChildren: 0.1,
-          },
+      transition:
+        prefersReducedMotion || isMobile
+          ? { duration: 0.2 }
+          : {
+              staggerChildren: 0.1,
+              delayChildren: 0.05,
+            },
     },
   };
 
   const sectionVariants = {
-    hidden: prefersReducedMotion
-      ? { opacity: 0 }
-      : {
-          opacity: 0,
-          y: 30,
-          scale: 0.95,
-        },
-    visible: prefersReducedMotion
-      ? { opacity: 1 }
-      : {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          transition: {
-            duration: 0.6,
-            ease: [0.25, 0.4, 0.25, 1],
-            type: "tween",
+    hidden:
+      prefersReducedMotion || isMobile
+        ? { opacity: 0 }
+        : {
+            opacity: 0,
+            y: 20,
+            scale: 0.98,
           },
-        },
+    visible:
+      prefersReducedMotion || isMobile
+        ? {
+            opacity: 1,
+            transition: { duration: 0.3 },
+          }
+        : {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+              duration: 0.4,
+              ease: [0.25, 0.4, 0.25, 1],
+              type: "tween",
+            },
+          },
   };
 
   // DotGrid props
@@ -109,7 +115,7 @@ const LandingPage: React.FC = React.memo(() => {
         animate="visible"
       >
         {/* Container dengan max-width dan padding konsisten */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-16 md:space-y-24 lg:space-y-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-8 md:space-y-16 lg:space-y-24">
           <motion.div variants={sectionVariants}>
             <HeroSection />
           </motion.div>
