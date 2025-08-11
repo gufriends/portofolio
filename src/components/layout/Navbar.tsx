@@ -88,6 +88,7 @@ const Navbar: React.FC = () => {
               href="#home"
               className="text-white font-bold text-lg"
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => handleNavClick("home")}
             >
               <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
@@ -107,14 +108,27 @@ const Navbar: React.FC = () => {
                       : "text-gray-300 hover:text-white"
                   }`}
                   onClick={() => handleNavClick(item.key)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                    transition: { type: "spring", stiffness: 600, damping: 15 },
+                  }}
                 >
                   {activeSection === item.key && (
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-[#3BF686]/20 to-[#4CA9FF]/20 rounded-full border border-[#3BF686]/30"
                       layoutId="activeTab"
-                      transition={{ duration: 0.3 }}
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                        mass: 0.8,
+                      }}
                     />
                   )}
                   <span className="relative z-10">{item.label}</span>
@@ -143,7 +157,10 @@ const Navbar: React.FC = () => {
             <motion.a
               href="#home"
               className="text-white font-bold text-lg"
-              whileTap={{ scale: 0.95 }}
+              whileTap={{
+                scale: 0.95,
+                transition: { type: "spring", stiffness: 400, damping: 10 },
+              }}
               onClick={() => handleNavClick("home")}
             >
               <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
@@ -154,7 +171,15 @@ const Navbar: React.FC = () => {
             <motion.button
               className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{
+                scale: 0.9,
+                rotate: isMobileMenuOpen ? 90 : 0,
+                transition: { type: "spring", stiffness: 400, damping: 10 },
+              }}
+              whileHover={{
+                scale: 1.05,
+                transition: { type: "spring", stiffness: 400, damping: 10 },
+              }}
             >
               <Icon
                 icon={isMobileMenuOpen ? "lucide:x" : "lucide:menu"}
@@ -169,10 +194,15 @@ const Navbar: React.FC = () => {
           {isMobileMenuOpen && (
             <motion.div
               className="fixed top-16 left-4 right-4 z-40 backdrop-blur-lg bg-black/80 rounded-2xl border border-white/10 overflow-hidden"
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              initial={{ opacity: 0, y: -20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              exit={{ opacity: 0, y: -20, scale: 0.9 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+                mass: 0.9,
+              }}
             >
               <div className="p-4 space-y-2">
                 {navItems.map((item, index) => (
@@ -187,8 +217,29 @@ const Navbar: React.FC = () => {
                     onClick={() => handleNavClick(item.key)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileTap={{ scale: 0.98 }}
+                    transition={{
+                      delay: index * 0.1,
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20,
+                    }}
+                    whileTap={{
+                      scale: 0.98,
+                      x: 5,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      },
+                    }}
+                    whileHover={{
+                      x: 3,
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 15,
+                      },
+                    }}
                   >
                     <Icon icon={item.icon} className="w-5 h-5" />
                     <span className="font-medium">{item.label}</span>
@@ -214,7 +265,10 @@ const Navbar: React.FC = () => {
         >
           <motion.div
             className="px-4 py-3 backdrop-blur-lg bg-black/40 rounded-full border border-white/10 shadow-lg shadow-black/25"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{
+              scale: 1.02,
+              transition: { type: "spring", stiffness: 400, damping: 10 },
+            }}
           >
             <div className="flex items-center space-x-2">
               {navItems.map((item) => (
@@ -227,14 +281,29 @@ const Navbar: React.FC = () => {
                       : "text-gray-400 hover:text-white"
                   }`}
                   onClick={() => handleNavClick(item.key)}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{
+                    scale: 1.2,
+                    y: -2,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{
+                    scale: 0.85,
+                    y: 1,
+                    transition: { type: "spring", stiffness: 600, damping: 15 },
+                  }}
                 >
                   {activeSection === item.key && (
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-[#3BF686]/30 to-[#4CA9FF]/30 rounded-full border border-[#3BF686]/50"
                       layoutId="activeMobileTab"
-                      transition={{ duration: 0.3 }}
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                        mass: 0.6,
+                      }}
                     />
                   )}
                   <Icon icon={item.icon} className="w-5 h-5 relative z-10" />

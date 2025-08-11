@@ -6,10 +6,13 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { useTranslation } from "react-i18next";
 
 const AboutSection: React.FC = () => {
   // State untuk mengontrol tampilan konten
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const { t } = useTranslation();
 
   const WorkIcon = () => (
     <Icon icon="mdi:briefcase" className="w-4 h-4 text-white" />
@@ -31,7 +34,7 @@ const AboutSection: React.FC = () => {
         {/* Header */}
         <h2 className="text-3xl font-bold text-center mb-12 font-sora">
           <span className="bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] bg-clip-text text-transparent">
-            About Me
+            {t("aboutSection.title")}
           </span>
         </h2>
 
@@ -41,19 +44,13 @@ const AboutSection: React.FC = () => {
             <span className="w-6 h-6 rounded-md bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] flex items-center justify-center mr-3">
               <Icon icon="mdi:account" className="w-3.5 h-3.5 text-white" />
             </span>
-            Biography
+            {t("aboutSection.biography")}
           </h3>
           <p className="text-neutral-300 font-inter leading-relaxed mb-4">
-            I'm a software engineering student with a passion for creating
-            elegant, efficient digital experiences. I specialize in frontend
-            development and UX research, combining technical expertise with
-            design sensibility to build intuitive interfaces.
+            {t("aboutSection.biographyContent1")}
           </p>
           <p className="text-neutral-300 font-inter leading-relaxed">
-            My approach blends beauty with functionality, focusing on responsive
-            designs that work flawlessly across all devices. I'm constantly
-            learning new technologies and methodologies to stay at the cutting
-            edge of web development.
+            {t("aboutSection.biographyContent2")}
           </p>
         </div>
 
@@ -64,7 +61,9 @@ const AboutSection: React.FC = () => {
             className="group flex items-center justify-center px-6 py-3 bg-zinc-800/80 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
           >
             <span className="text-neutral-300 font-inter mr-2">
-              {isExpanded ? "View Less" : "View More"}
+              {isExpanded
+                ? t("aboutSection.viewLess")
+                : t("aboutSection.viewMore")}
             </span>
             <motion.div
               animate={{ rotate: isExpanded ? 180 : 0 }}
@@ -120,10 +119,10 @@ const AboutSection: React.FC = () => {
 
                     <div className="mt-16 text-center">
                       <h3 className="text-xl font-sora font-semibold text-white mb-1">
-                        Muhammad Ghufran
+                        {t("aboutSection.name")}
                       </h3>
                       <p className="text-neutral-400 font-inter text-sm mb-4">
-                        Software Engineering Student
+                        {t("aboutSection.role")}
                       </p>
 
                       {/* Stats */}
@@ -135,26 +134,26 @@ const AboutSection: React.FC = () => {
                       >
                         <div className="text-center px-2">
                           <p className="text-xl font-sora font-bold text-white">
-                            2+
+                            {t("aboutSection.yearsExperience")}
                           </p>
                           <p className="text-xs font-inter text-neutral-400">
-                            Years Experience
+                            {t("aboutSection.yearsExperienceLabel")}
                           </p>
                         </div>
                         <div className="text-center px-2">
                           <p className="text-xl font-sora font-bold text-white">
-                            10+
+                            {t("aboutSection.projectsCompleted")}
                           </p>
                           <p className="text-xs font-inter text-neutral-400">
-                            Projects
+                            {t("aboutSection.projectsLabel")}
                           </p>
                         </div>
                         <div className="text-center px-2">
                           <p className="text-xl font-sora font-bold text-white">
-                            5+
+                            {t("aboutSection.techStack")}
                           </p>
                           <p className="text-xs font-inter text-neutral-400">
-                            Tech Stack
+                            {t("aboutSection.techStackLabel")}
                           </p>
                         </div>
                       </motion.div>
@@ -172,7 +171,7 @@ const AboutSection: React.FC = () => {
                           className="w-3.5 h-3.5 text-white"
                         />
                       </span>
-                      Education & Experience
+                      {t("aboutSection.educationExperience")}
                     </h3>
 
                     <VerticalTimeline lineColor="linear-gradient(to bottom, #3BF686, #4CA9FF)">
@@ -188,7 +187,7 @@ const AboutSection: React.FC = () => {
                         contentArrowStyle={{
                           borderRight: "7px solid rgba(39, 39, 42, 0.8)",
                         }}
-                        date="2021 - Present"
+                        date={t("aboutSection.universityDate")}
                         dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
                         iconStyle={{
                           background:
@@ -199,15 +198,13 @@ const AboutSection: React.FC = () => {
                         icon={<EducationIcon />}
                       >
                         <h3 className="text-lg font-sora font-semibold text-white">
-                          University of Syiah Kuala
+                          {t("aboutSection.university")}
                         </h3>
                         <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
-                          Software Engineering
+                          {t("aboutSection.major")}
                         </h4>
                         <p className="text-neutral-300 font-inter text-sm">
-                          Studying software architecture, agile methodologies,
-                          and full-stack development. Active in campus tech
-                          communities.
+                          {t("aboutSection.universityDescription")}
                         </p>
                       </VerticalTimelineElement>
 
@@ -223,7 +220,7 @@ const AboutSection: React.FC = () => {
                         contentArrowStyle={{
                           borderRight: "7px solid rgba(39, 39, 42, 0.8)",
                         }}
-                        date="Feb 2024 - Jun 2024"
+                        date={t("aboutSection.bangkitDate")}
                         dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
                         iconStyle={{
                           background:
@@ -234,17 +231,13 @@ const AboutSection: React.FC = () => {
                         icon={<EducationIcon />}
                       >
                         <h3 className="text-lg font-sora font-semibold text-white">
-                          Bangkit Academy
+                          {t("aboutSection.bangkitTitle")}
                         </h3>
                         <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
-                          Mobile Development
+                          {t("aboutSection.bangkitRole")}
                         </h4>
                         <p className="text-neutral-300 font-inter text-sm">
-                          Developed Android apps using Kotlin with focus on
-                          performance and UX. Built Fintrack capstone project -
-                          financial app with ML integration. Enhanced
-                          problem-solving skills through real-world mobile
-                          development.
+                          {t("aboutSection.bangkitDescription")}
                         </p>
                       </VerticalTimelineElement>
 
@@ -260,7 +253,7 @@ const AboutSection: React.FC = () => {
                         contentArrowStyle={{
                           borderRight: "7px solid rgba(39, 39, 42, 0.8)",
                         }}
-                        date="2025 - Now"
+                        date={t("aboutSection.freelanceDate")}
                         dateClassName="!text-neutral-300 !font-inter !text-sm mx-4"
                         iconStyle={{
                           background:
@@ -271,15 +264,13 @@ const AboutSection: React.FC = () => {
                         icon={<WorkIcon />}
                       >
                         <h3 className="text-lg font-sora font-semibold text-white">
-                          Freelance Web Developer
+                          {t("aboutSection.freelance")}
                         </h3>
                         <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
-                          Frontend Specialist
+                          {t("aboutSection.freelanceRole")}
                         </h4>
                         <p className="text-neutral-300 font-inter text-sm">
-                          Developed responsive websites and applications for
-                          various clients, focusing on clean code and optimal
-                          user experience.
+                          {t("aboutSection.freelanceDescription")}
                         </p>
                       </VerticalTimelineElement>
 

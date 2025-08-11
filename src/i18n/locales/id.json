@@ -95,6 +95,37 @@
     "emailPlaceholder": "Masukkan email Anda",
     "messagePlaceholder": "Masukkan pesan Anda"
   },
+
+  "aboutSection": {
+    "title": "Tentang Saya",
+    "biography": "Biografi",
+    "biographyContent1": "Saya seorang mahasiswa teknik perangkat lunak dengan passion untuk menciptakan pengalaman digital yang elegan dan efisien. Saya mengkhususkan diri dalam pengembangan frontend dan riset UX, menggabungkan keahlian teknis dengan kepekaan desain untuk membangun antarmuka yang intuitif.",
+    "biographyContent2": "Pendekatan saya memadukan keindahan dengan fungsionalitas, fokus pada desain responsif yang bekerja sempurna di semua perangkat. Saya terus menerus mempelajari teknologi dan metodologi baru untuk tetap berada di garis depan pengembangan web.",
+    "viewMore": "Lihat Lebih Banyak",
+    "viewLess": "Lihat Lebih Sedikit",
+    "name": "Muhammad Ghufran",
+    "role": "Mahasiswa Teknik Perangkat Lunak",
+    "yearsExperience": "2+",
+    "yearsExperienceLabel": "Tahun Pengalaman",
+    "projectsCompleted": "10+",
+    "projectsLabel": "Proyek",
+    "techStack": "5+",
+    "techStackLabel": "Tech Stack",
+    "educationExperience": "Pendidikan & Pengalaman",
+    "university": "Universitas Syiah Kuala",
+    "major": "Informatika",
+    "universityDescription": "Mempelajari informatika dengan fokus pada rekayasa perangkat lunak, algoritma, dan perancangan sistem. Aktif dalam komunitas teknologi kampus.",
+    "universityDate": "2021 - 2025",
+    "bangkit": "Bangkit Academy",
+    "bangkitRole": "Mobile Development",
+    "bangkitDescription": "Mengembangkan aplikasi Android menggunakan Kotlin dengan fokus pada performa dan UX. Membangun proyek capstone Fintrack - aplikasi keuangan dengan integrasi ML. Meningkatkan kemampuan pemecahan masalah melalui pengembangan mobile dunia nyata.",
+    "bangkitDate": "Feb 2024 - Jun 2024",
+    "freelance": "Software Engineer",
+    "freelanceRole": "Full Stack Developer",
+    "freelanceDescription": "Mengembangkan solusi perangkat lunak yang komprehensif untuk berbagai klien, dengan fokus pada arsitektur yang dapat diskalakan, kode yang bersih, dan pengalaman pengguna yang optimal.",
+    "freelanceDate": "2025 - Sekarang"
+  },
+
   "footer": {
     "copyright": "© {{year}} Muhammad Ghufran. Semua hak dilindungi.",
     "builtWith": "Dibuat dengan React & Tailwind CSS"
