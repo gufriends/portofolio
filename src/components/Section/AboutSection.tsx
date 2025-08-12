@@ -231,7 +231,7 @@ const AboutSection: React.FC = () => {
                         icon={<EducationIcon />}
                       >
                         <h3 className="text-lg font-sora font-semibold text-white">
-                          {t("aboutSection.bangkitTitle")}
+                          {t("aboutSection.bangkit")}
                         </h3>
                         <h4 className="text-sm font-inter font-medium text-[#4CA9FF] mb-2">
                           {t("aboutSection.bangkitRole")}
