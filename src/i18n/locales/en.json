@@ -25,20 +25,14 @@
     "viewProjects": "View Projects",
     "contactMe": "Contact Me",
     "biography": "Biography",
-    "contentBiography": "A passionate Software Engineer and final-year Informatics student who loves turning ideas into reality through code. When I'm not building web applications with React and TypeScript, you'll find me exploring new technologies, contributing to open-source projects, and collaborating with teams to solve complex problems.",
+    "contentBiography": "A passionate Software Engineer and Informatics graduate who loves turning ideas into reality through code. When I'm not building web applications with React and TypeScript, you'll find me exploring new technologies, contributing to open-source projects, and collaborating with teams to solve complex problems.",
     "Let's connect": "Let's connect",
     "What I do": "What I do",
     "descWhatIDo": "I specialize in creating modern web applications using React, TypeScript, and other cutting-edge technologies. With a passion for clean code and user-centered design, I build responsive, interactive experiences that solve real-world problems. Currently working as a Software Engineer while finishing my Informatics degree, I bring both academic knowledge and practical industry experience to every project.",
     "jobDes1": "Creating responsive, interactive websites and web applications with modern frontend frameworks and best practices.",
     "jobDes2": "Building robust server-side applications and APIs using modern backend technologies and best practices"
   },
-  "about": {
-    "title": "Biography",
-    "description": "A passionate Software Engineer and final-year Informatics student who loves turning ideas into reality through code. When I'm not building web applications with React and TypeScript, you'll find me exploring new technologies, contributing to open-source projects, and collaborating with teams to solve complex problems.",
-    "experience": "Experience",
-    "projects": "Projects Completed",
-    "clients": "Happy Clients"
-  },
+
   "ProjectSection": {
     "headline": "Featured Projects",
     "description": "Real-world projects showcasing backend development, system architecture, and problem-solving skills",
@@ -70,8 +64,8 @@
   "aboutSection": {
     "title": "About Me",
     "biography": "Biography",
-    "biographyContent1": "I'm a Informatics student with a passion for creating elegant, efficient digital experiences. I specialize in frontend development and UX research, combining technical expertise with design sensibility to build intuitive interfaces.",
-    "biographyContent2": "My approach blends beauty with functionality, focusing on responsive designs that work flawlessly across all devices. I'm constantly learning new technologies and methodologies to stay at the cutting edge of web development.",
+    "biographyContent1": "I'm a graduated Informatics professional with extensive hands-on experience in software development. During my 2-month internship at Aceh Provincial Social Service Department (Dinsos Prov Aceh), I specialized in backend development, building robust systems and APIs. I also completed a 6-month intensive program at Bangkit Academy as a Mobile Developer, where I honed my skills in mobile application development.",
+    "biographyContent2": "I specialize in both frontend and backend development, combining technical expertise with design sensibility to build comprehensive web solutions. My approach blends beauty with functionality, focusing on responsive designs and robust REST APIs that work flawlessly across all devices. I'm constantly learning new technologies and methodologies to stay at the cutting edge of full-stack web development.",
     "viewMore": "View More",
     "viewLess": "View Less",
     "name": "Muhammad Ghufran",

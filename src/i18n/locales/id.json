@@ -64,7 +64,7 @@
   },
   "SkillSection": {
     "title": "Tech Stack",
-    "description": "Teknologi dan alat yang telah saya gunakan dan miliki pengalaman dalam berbagai proyek"
+    "description": "Teknologi dan alat yang telah berpengalaman saya gunakan dalam berbagai proyek"
   },
   "skills": {
     "title": "Yang Saya Lakukan",
@@ -99,8 +99,8 @@
   "aboutSection": {
     "title": "Tentang Saya",
     "biography": "Biografi",
-    "biographyContent1": "Saya seorang mahasiswa informatika dengan passion untuk menciptakan pengalaman digital yang elegan dan efisien. Saya mengkhususkan diri dalam pengembangan frontend dan riset UX, menggabungkan keahlian teknis dengan kepekaan desain untuk membangun antarmuka yang intuitif.",
-    "biographyContent2": "Pendekatan saya memadukan keindahan dengan fungsionalitas, fokus pada desain responsif yang bekerja sempurna di semua perangkat. Saya terus menerus mempelajari teknologi dan metodologi baru untuk tetap berada di garis depan pengembangan web.",
+    "biographyContent1": "Sebagai lulusan Informatika dengan pengalaman langsung dalam pengembangan perangkat lunak. Selama magang 2 bulan di Dinas Sosial Provinsi Aceh, saya mengkhususkan diri dalam pengembangan backend, membangun sistem dan API yang kuat. Saya juga menyelesaikan program intensif 6 bulan di Bangkit Academy sebagai Mobile Developer, di mana saya mengasah kemampuan dalam pengembangan aplikasi mobile.",
+    "biographyContent2": "Saya mengkhususkan diri dalam pengembangan frontend dan backend, menggabungkan keahlian teknis dengan kepekaan desain untuk membangun solusi web yang komprehensif. Pendekatan saya memadukan keindahan dengan fungsionalitas, fokus pada desain responsif dan REST API yang kuat yang bekerja sempurna di semua perangkat. Saya terus menerus mempelajari teknologi dan metodologi baru untuk tetap berada di garis depan pengembangan web full-stack.",
     "viewMore": "Lihat Lebih Banyak",
     "viewLess": "Lihat Lebih Sedikit",
     "name": "Muhammad Ghufran",
