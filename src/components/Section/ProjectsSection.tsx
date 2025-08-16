@@ -57,7 +57,7 @@ const ProjectsSection: React.FC = () => {
       category: "Backend Development",
       description: t("ProjectSection.projects.0.description"),
       imageSrc: "/coverProject/sipema.png",
-      projectUrl: "#",
+      projectUrl: "git@github.com:GhufranBkri/Sipema-backend.git",
       technologies: [
         { icon: "logos:typescript-icon", alt: "TypeScript" },
         { icon: "logos:postgresql", alt: "PostgreSQL" },
