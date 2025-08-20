@@ -146,7 +146,7 @@ const HeroSection: React.FC = () => {
                   name: "linkedin",
                 },
                 {
-                  href: "https://github.com/GhufranBkri",
+                  href: "https://github.com/gufriends",
                   icon: "mdi:github",
                   name: "github",
                 },
