@@ -5,10 +5,13 @@ import SkillsSection from "../components/Section/SkillsSection";
 import AboutSection from "../components/Section/AboutSection";
 import DotGrid from "../components/effects/DotGrid";
 import SectionScrollFloat from "../components/effects/SectionScrollFloat";
+import Footer from "../components/layout/Footer";
+import Navbar from "../components/layout/Navbar";
 
 const LandingPage: React.FC = () => {
   return (
     <div className="relative w-full min-h-screen">
+      <Navbar />
       {/* DotGrid Background */}
       <div className="fixed inset-0 w-full h-full z-0">
         <DotGrid
@@ -76,6 +79,7 @@ const LandingPage: React.FC = () => {
             </SectionScrollFloat>
           </section>
         </div>
+        <Footer />
       </main>
     </div>
   );

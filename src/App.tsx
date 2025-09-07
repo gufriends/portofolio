@@ -14,6 +14,9 @@ import ProjectsPage from "./pages/ProjectsPage";
 import { useEffect } from "react";
 import { track } from "@vercel/analytics";
 import { usePageTracking } from "./hooks/usePageTracking";
+import AuthPage from "./pages/AuthPage";
+import AdminPage from "./pages/AdminPage";
+import ForbiddenPage from "./pages/forbidenPage";
 
 function AppContent() {
   const location = useLocation();
@@ -31,12 +34,13 @@ function AppContent() {
 
   return (
     <div className="App">
-      <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/forbidden" element={<ForbiddenPage />} />
       </Routes>
-      <Footer />
     </div>
   );
 }
