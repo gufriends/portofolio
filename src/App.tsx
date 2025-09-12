@@ -6,16 +6,14 @@ import {
   useLocation,
 } from "react-router-dom";
 import "./App.css";
-import "./i18n"; // Import i18n configuration
-import Footer from "./components/layout/Footer";
+import "./i18n";
 import LandingPage from "./pages/LadingPage";
-import Navbar from "./components/layout/Navbar";
 import ProjectsPage from "./pages/ProjectsPage";
 import { useEffect } from "react";
 import { track } from "@vercel/analytics";
 import { usePageTracking } from "./hooks/usePageTracking";
 import AuthPage from "./pages/AuthPage";
-import AdminPage from "./pages/AdminPage";
+import AdminPage from "./pages/Admin/AdminPage";
 import ForbiddenPage from "./pages/forbidenPage";
 
 function AppContent() {
@@ -39,6 +37,7 @@ function AppContent() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/*" element={<AdminPage />} />
         <Route path="/forbidden" element={<ForbiddenPage />} />
       </Routes>
     </div>
