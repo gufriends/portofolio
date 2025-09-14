@@ -122,7 +122,7 @@ const ProjectsSection: React.FC = () => {
         </div>
 
         {/* See All Button - Moved to header right */}
-        <motion.div variants={itemVariants}>
+        {/* <motion.div variants={itemVariants}>
           <Link to="/projects">
             <motion.button
               className="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#3BF686] to-[#4CA9FF] text-black font-semibold rounded-full hover:shadow-lg hover:shadow-[#3BF686]/25 transition-all duration-300"
@@ -145,7 +145,7 @@ const ProjectsSection: React.FC = () => {
               </svg>
             </motion.button>
           </Link>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Projects Grid - 3 columns layout */}
