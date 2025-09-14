@@ -2,23 +2,24 @@ import { useEffect, useState } from "react";
 import { DataTable } from "../../components/dataTable/DataTable";
 import type { Project } from "../../types/Project";
 import axiosConfig from "../../config/axiosConfig";
+import AddProjectPopup from "./AddProjectPopup";
 
 export default function ProjectsAdminPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [searchValue, setSearchValue] = useState(""); // ✅ Tambahkan state searchValue
+  const [searchValue, setSearchValue] = useState("");
   const [totalData, setTotalData] = useState(0);
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
   const [rows, setRows] = useState(10);
+  const [showAddPopup, setShowAddPopup] = useState(false);
 
   useEffect(() => {
     const fetchProjects = async () => {
       setIsLoading(true);
 
       try {
-        // ✅ Gunakan JSON.stringify untuk searchFilters
         const searchFilters = searchValue
           ? { "translations.title": searchValue }
           : {};
@@ -38,7 +39,7 @@ export default function ProjectsAdminPage() {
     };
 
     fetchProjects();
-  }, [page, rows, searchValue]); // ✅ Tambahkan searchValue ke dependency
+  }, [page, rows, searchValue]);
 
   const enTranslation = (p: Project) =>
     p.translations.find((t) => t.language === "en");
@@ -97,10 +98,13 @@ export default function ProjectsAdminPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen space-y-6 p-6">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-bold text-white">Projects</h2>
-        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+        <button
+          onClick={() => setShowAddPopup(true)}
+          className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+        >
           Add New Project
         </button>
       </div>
@@ -117,8 +121,14 @@ export default function ProjectsAdminPage() {
         rows={rows}
         onPageChange={setPage}
         onRowsChange={setRows}
-        searchValue={searchValue} // ✅
-        onSearchChange={setSearchValue} // ✅
+        searchValue={searchValue}
+        onSearchChange={setSearchValue}
+      />
+
+      <AddProjectPopup
+        isOpen={showAddPopup}
+        onClose={() => setShowAddPopup(false)}
+        onSuccess={() => {}}
       />
     </div>
   );

@@ -66,7 +66,7 @@ const AdminPage: React.FC = () => {
           </div>
 
           {/* Content */}
-          <main className="p-6">
+          <main className="">
             <SectionScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"

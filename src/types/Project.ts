@@ -33,3 +33,17 @@ export interface ProjectsResponse {
   message: string;
   errors: any[];
 }
+
+export interface ProjectFormData {
+  projectUrl: string;
+  year: string;
+  status: string;
+  imagePosition: string;
+  imageSrc: string;
+  translations: {
+    language: string;
+    title: string;
+    category: string;
+    description: string;
+  }[];
+}
